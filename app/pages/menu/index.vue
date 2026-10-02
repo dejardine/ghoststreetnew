@@ -16,10 +16,7 @@ const coverStyle = computed(() => ({
 }))
 
 useHead({
-  link: () => [
-    cover.value.large && { rel: 'preload', as: 'image', href: cover.value.large, media: '(min-width: 768px)', fetchpriority: 'high' },
-    cover.value.mobile && { rel: 'preload', as: 'image', href: cover.value.mobile, media: '(max-width: 767px)', fetchpriority: 'high' },
-  ].filter(Boolean) as Record<string, string>[],
+  link: () => [...preloadImage(cover.value.large, '(min-width: 768px)'), ...preloadImage(cover.value.mobile, '(max-width: 767px)')],
 })
 </script>
 

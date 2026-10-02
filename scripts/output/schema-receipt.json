@@ -1,0 +1,36 @@
+{
+  "at": "2026-10-02T02:46:44.691Z",
+  "dry": false,
+  "receipt": [
+    {
+      "key": "home",
+      "id": "ar8SZhEAAC0AWcOP",
+      "status": "staged as draft (unpublished)",
+      "file": "home.json"
+    },
+    {
+      "key": "food_menu",
+      "id": "ar8SYxEAACsAWcOI",
+      "status": "staged as draft (unpublished)",
+      "file": "menu.json"
+    },
+    {
+      "key": "page:bookings",
+      "id": "ar8SbBEAAC4AWcOj",
+      "status": "staged as draft (unpublished)",
+      "file": "bookings.json"
+    },
+    {
+      "key": "page:private-events",
+      "id": "ar8SahEAACoAWcOd",
+      "status": "staged as draft (unpublished)",
+      "file": "private-events.json"
+    },
+    {
+      "key": "page:pickup-delivery",
+      "id": "ar8SaBEAACcAWcOX",
+      "status": "staged as draft (unpublished)",
+      "file": "pickup-delivery.json"
+    }
+  ]
+}

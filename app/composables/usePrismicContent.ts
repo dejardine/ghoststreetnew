@@ -29,7 +29,7 @@ async function loadDocument<T>(key: string, fetcher: (client: prismic.Client) =>
 }
 
 export const useSingleDocument = <T extends AllDocumentTypes['type']>(type: T) =>
-  loadDocument(`single:${type}`, (client) => client.getSingle(type) as Promise<DocumentOf<T>>, false)
+  loadDocument(`single:${type}`, (client) => client.getSingle(type as never) as Promise<DocumentOf<T>>, false)
 
 export const useDocumentByUID = <T extends AllDocumentTypes['type']>(type: T, uid: string) =>
-  loadDocument(`uid:${type}:${uid}`, (client) => client.getByUID(type, uid) as Promise<DocumentOf<T>>, true)
+  loadDocument(`uid:${type}:${uid}`, (client) => client.getByUID(type as never, uid) as Promise<DocumentOf<T>>, true)

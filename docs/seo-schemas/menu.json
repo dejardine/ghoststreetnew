@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://ghoststreetakl.nz/menu/#webpage",
+      "url": "https://ghoststreetakl.nz/menu/",
+      "name": "Food Menu | Ghost Street",
+      "isPartOf": {
+        "@id": "https://ghoststreetakl.nz/#website"
+      },
+      "about": {
+        "@id": "https://ghoststreetakl.nz/#venue"
+      },
+      "breadcrumb": {
+        "@id": "https://ghoststreetakl.nz/menu/#breadcrumb"
+      },
+      "inLanguage": "en-NZ"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ghoststreetakl.nz/menu/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ghoststreetakl.nz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Food Menu",
+          "item": "https://ghoststreetakl.nz/menu/"
+        }
+      ]
+    }
+  ]
+}

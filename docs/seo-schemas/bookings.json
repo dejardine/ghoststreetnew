@@ -1,0 +1,39 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://ghoststreetakl.nz/bookings/#webpage",
+      "url": "https://ghoststreetakl.nz/bookings/",
+      "name": "Bookings | Ghost Street",
+      "isPartOf": {
+        "@id": "https://ghoststreetakl.nz/#website"
+      },
+      "about": {
+        "@id": "https://ghoststreetakl.nz/#venue"
+      },
+      "breadcrumb": {
+        "@id": "https://ghoststreetakl.nz/bookings/#breadcrumb"
+      },
+      "inLanguage": "en-NZ"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://ghoststreetakl.nz/bookings/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ghoststreetakl.nz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Bookings",
+          "item": "https://ghoststreetakl.nz/bookings/"
+        }
+      ]
+    }
+  ]
+}

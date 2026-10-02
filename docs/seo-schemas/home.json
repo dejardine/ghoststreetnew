@@ -1,0 +1,50 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Restaurant",
+      "@id": "https://ghoststreetakl.nz/#venue",
+      "name": "Ghost Street",
+      "url": "https://ghoststreetakl.nz/",
+      "description": "A reimagining of the heady hole-in-the-wall eateries along Beijing's famous food street.",
+      "servesCuisine": "Chinese",
+      "telephone": "+64 9 306 2233",
+      "email": "eat@ghoststreetakl.nz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "27 Galway Street",
+        "addressLocality": "Britomart, Auckland",
+        "addressCountry": "NZ"
+      },
+      "hasMenu": "https://ghoststreetakl.nz/menu/",
+      "acceptsReservations": "https://ghoststreetakl.nz/bookings/",
+      "sameAs": [
+        "https://instagram.com/ghoststreetakl",
+        "https://www.facebook.com/GhostStreetAKL/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ghoststreetakl.nz/#website",
+      "url": "https://ghoststreetakl.nz/",
+      "name": "Ghost Street",
+      "publisher": {
+        "@id": "https://ghoststreetakl.nz/#venue"
+      },
+      "inLanguage": "en-NZ"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ghoststreetakl.nz/#webpage",
+      "url": "https://ghoststreetakl.nz/",
+      "name": "Ghost Street",
+      "isPartOf": {
+        "@id": "https://ghoststreetakl.nz/#website"
+      },
+      "about": {
+        "@id": "https://ghoststreetakl.nz/#venue"
+      },
+      "inLanguage": "en-NZ"
+    }
+  ]
+}

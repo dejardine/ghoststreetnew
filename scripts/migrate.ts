@@ -71,7 +71,7 @@ async function upload(urlOrPath: string, alt = ''): Promise<prismic.PrismicMigra
     value = known.id
   } else {
     const ext = basename(key).split('.').pop()!
-    const file = new File([a.buf], basename(key), { type: MIME[ext] ?? 'application/octet-stream' })
+    const file = new File([new Uint8Array(a.buf)], basename(key), { type: MIME[ext] ?? 'application/octet-stream' })
     value = migration.createAsset(file, basename(key), { alt, notes: `Migrated from WordPress ${key}` })
   }
   registered.set(key, value)

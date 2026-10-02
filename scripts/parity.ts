@@ -151,7 +151,7 @@ for (const path of PAGES) {
       results.push({ site, ...(await measure(page, probes, which)) })
       await page.close()
     }
-    const [prod, next] = results as [Awaited<ReturnType<typeof measure>>, Awaited<ReturnType<typeof measure>>]
+    const [prod, next] = results as unknown as [Awaited<ReturnType<typeof measure>>, Awaited<ReturnType<typeof measure>>]
     const lines: string[] = []
     for (const [label] of probes) {
       const a = prod.probes[label] as { rect: number[]; style: Record<string, string>; text: string }[]

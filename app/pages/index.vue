@@ -21,9 +21,9 @@ const heroLink = computed(() => (prismic.isFilled.link(d.value.hero_link) && d.v
 /* Phones show the cover image instead of the video: preload whichever crop applies. */
 useHead({
   link: () => [
-    coverPortrait.value && { rel: 'preload', as: 'image', href: coverPortrait.value, media: '(max-width: 767px) and (orientation: portrait)', fetchpriority: 'high' },
-    coverLandscape.value && { rel: 'preload', as: 'image', href: coverLandscape.value, media: '(max-width: 767px) and (orientation: landscape)', fetchpriority: 'high' },
-  ].filter(Boolean) as Record<string, string>[],
+    ...preloadImage(coverPortrait.value, '(max-width: 767px) and (orientation: portrait)'),
+    ...preloadImage(coverLandscape.value, '(max-width: 767px) and (orientation: landscape)'),
+  ],
 })
 
 const teasers = computed(() => [
