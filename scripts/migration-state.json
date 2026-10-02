@@ -1,0 +1,128 @@
+{
+  "documents": {
+    "page:bookings": {
+      "id": "ar8SbBEAAC4AWcOj",
+      "type": "page",
+      "uid": "bookings",
+      "lastPublicationDate": "2026-10-02T02:13:37+0000"
+    },
+    "page:private-events": {
+      "id": "ar8SahEAACoAWcOd",
+      "type": "page",
+      "uid": "private-events",
+      "lastPublicationDate": "2026-10-02T02:13:37+0000"
+    },
+    "page:pickup-delivery": {
+      "id": "ar8SaBEAACcAWcOX",
+      "type": "page",
+      "uid": "pickup-delivery",
+      "lastPublicationDate": "2026-10-02T02:13:37+0000"
+    },
+    "home": {
+      "id": "ar8SZhEAAC0AWcOP",
+      "type": "home",
+      "lastPublicationDate": "2026-10-02T02:13:36+0000"
+    },
+    "food_menu": {
+      "id": "ar8SYxEAACsAWcOI",
+      "type": "food_menu",
+      "lastPublicationDate": "2026-10-02T02:13:36+0000"
+    },
+    "navigation": {
+      "id": "ar8SYREAACwAWcN_",
+      "type": "navigation",
+      "lastPublicationDate": "2026-10-02T02:13:36+0000"
+    },
+    "settings": {
+      "id": "ar8SXxEAACcAWcN6",
+      "type": "settings",
+      "lastPublicationDate": "2026-10-02T02:13:36+0000"
+    }
+  },
+  "assets": {
+    "/wp-content/themes/ghoststreet/r/img/booking.jpg": {
+      "id": "tlr-VxSFtvV7RfJA",
+      "url": "https://images.prismic.io/ghoststreet/tlr-VxSFtvV7RfJA_booking.jpg?auto=format,compress",
+      "sha256": "e3061bb4c4fa3e74224655ad0786bfdb9d687fda22f2135899784442a744ff86",
+      "originalPath": "/wp-content/themes/ghoststreet/r/img/booking.jpg"
+    },
+    "/wp-content/themes/ghoststreet/r/video/home.mp4": {
+      "id": "ZBQ07hX07ve9ZTGl",
+      "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/ZBQ07hX07ve9ZTGl_home.mp4",
+      "sha256": "81de82da4e5f1253de6809e63a95f37234222820eb52b0307ad905229ef9c8dd",
+      "originalPath": "/wp-content/themes/ghoststreet/r/video/home.mp4"
+    },
+    "/wp-content/uploads/2021/04/homepage-hero-1-scaled.jpg": {
+      "id": "OORmTlB4GopglBmU",
+      "url": "https://images.prismic.io/ghoststreet/OORmTlB4GopglBmU_homepage-hero-1-scaled.jpg?auto=format,compress",
+      "sha256": "2eb2f0e121e1e61c24763cd363968c069d24373b59a549d42250b446233eb69c",
+      "originalPath": "/wp-content/uploads/2021/04/homepage-hero-1-scaled.jpg"
+    },
+    "/wp-content/uploads/2021/04/GS_Mobile-Home.jpg": {
+      "id": "P0w76dSTdFHLCkwN",
+      "url": "https://images.prismic.io/ghoststreet/P0w76dSTdFHLCkwN_GS_Mobile-Home.jpg?auto=format,compress",
+      "sha256": "0a638ba893ffddac7c1c4a39a5bdb5f4efaed45c8c8c6aa38eb6074a2fd255ac",
+      "originalPath": "/wp-content/uploads/2021/04/GS_Mobile-Home.jpg"
+    },
+    "/wp-content/uploads/2021/04/Home-Block-1.jpg": {
+      "id": "wShEdBkrDB6woOGD",
+      "url": "https://images.prismic.io/ghoststreet/wShEdBkrDB6woOGD_Home-Block-1.jpg?auto=format,compress",
+      "sha256": "3b1133535bdd313d18bf8eaf8e44fd80d60bc38cc6696ee2a22abf41897f1d30",
+      "originalPath": "/wp-content/uploads/2021/04/Home-Block-1.jpg"
+    },
+    "/wp-content/uploads/2021/04/Home-Block-2.jpg": {
+      "id": "k4esZT3XmFpZa-3P",
+      "url": "https://images.prismic.io/ghoststreet/k4esZT3XmFpZa-3P_Home-Block-2.jpg?auto=format,compress",
+      "sha256": "09279c607ddb0701a59388bc987d70943066fb25a21cf1ee86d30e4ea8fcc340",
+      "originalPath": "/wp-content/uploads/2021/04/Home-Block-2.jpg"
+    },
+    "/wp-content/uploads/2021/04/Booking-illustration-Block-3-home.svg": {
+      "id": "UPl9PvxBniwPg53A",
+      "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/UPl9PvxBniwPg53A_Booking-illustration-Block-3-home.svg",
+      "sha256": "1b56aeaeca3ccc553b1a4e7cb70da0706a01695cfa084298ed00fb162b22a9bb",
+      "originalPath": "/wp-content/uploads/2021/04/Booking-illustration-Block-3-home.svg"
+    },
+    "/wp-content/uploads/2021/04/Home-Block-3.jpg": {
+      "id": "6qp8YqBNeBLDh5sb",
+      "url": "https://images.prismic.io/ghoststreet/6qp8YqBNeBLDh5sb_Home-Block-3.jpg?auto=format,compress",
+      "sha256": "53818fd510645a3e03e4ae24555a235660b0a1f7c4af8d768523b7b15a9f75d8",
+      "originalPath": "/wp-content/uploads/2021/04/Home-Block-3.jpg"
+    },
+    "/wp-content/uploads/2021/04/Menu-Background.jpg": {
+      "id": "wkgeJtckTEztwLoG",
+      "url": "https://images.prismic.io/ghoststreet/wkgeJtckTEztwLoG_Menu-Background.jpg?auto=format,compress",
+      "sha256": "9c27fcf3074840e2f4239d37e90f53e929a87c0ffcb537650607c691ef7b6d8c",
+      "originalPath": "/wp-content/uploads/2021/04/Menu-Background.jpg"
+    },
+    "/wp-content/uploads/2026/07/Chefs-Vege-Menu00726.pdf": {
+      "id": "thzWUj3WefSJ-eWB",
+      "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/thzWUj3WefSJ-eWB_Chefs-Vege-Menu00726.pdf",
+      "sha256": "6378efa5db600f9dcb5d77d36d611b3086060f1caf36c6c03f061d5496b4399b",
+      "originalPath": "/wp-content/uploads/2026/07/Chefs-Vege-Menu00726.pdf"
+    },
+    "/wp-content/uploads/2026/07/Chefs-Menu00726.pdf": {
+      "id": "s4tc0ZFzakjWgxGF",
+      "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/s4tc0ZFzakjWgxGF_Chefs-Menu00726.pdf",
+      "sha256": "3471d79e3d764fbc8ad9d8636d8bee637eb9d481dbeae0c62a82f498305935ee",
+      "originalPath": "/wp-content/uploads/2026/07/Chefs-Menu00726.pdf"
+    },
+    "/wp-content/uploads/2026/07/GS-Menu-0726.pdf": {
+      "id": "YXbOPZqzxb1N9_f4",
+      "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/YXbOPZqzxb1N9_f4_GS-Menu-0726.pdf",
+      "sha256": "b8e5980e93928e9853daf6404447c182d7cd3da7398ba4321ca8b21b2d8cf308",
+      "originalPath": "/wp-content/uploads/2026/07/GS-Menu-0726.pdf"
+    },
+    "/wp-content/uploads/2026/07/GS-Drinks-3007.pdf": {
+      "id": "SZDKTiKYBYqisP-j",
+      "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/SZDKTiKYBYqisP-j_GS-Drinks-3007.pdf",
+      "sha256": "ab0b47bdf3479854ec4af9850c267b8bfe883cdcd0be1b6225fa5ad60614a3a9",
+      "originalPath": "/wp-content/uploads/2026/07/GS-Drinks-3007.pdf"
+    },
+    "/wp-content/uploads/2022/09/ghost-street-map-1.jpg": {
+      "id": "zEym6GPvwGOtr7tL",
+      "url": "https://images.prismic.io/ghoststreet/zEym6GPvwGOtr7tL_ghost-street-map-1.jpg?auto=format,compress",
+      "sha256": "b9566a4342fb5c413b4ab0137db2fe3e8dd45d7da1f60cfc3537c45e49228c6e",
+      "originalPath": "/wp-content/uploads/2022/09/ghost-street-map-1.jpg"
+    }
+  }
+}
