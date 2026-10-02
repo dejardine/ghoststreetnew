@@ -1,0 +1,8 @@
+{
+  "repositoryName": "ghoststreet",
+  "routes": [
+    { "type": "home", "path": "/" },
+    { "type": "food_menu", "path": "/menu/" },
+    { "type": "page", "path": "/:uid/" }
+  ]
+}

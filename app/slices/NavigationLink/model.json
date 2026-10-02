@@ -1,0 +1,30 @@
+{
+  "id": "navigation_link",
+  "name": "Navigation Link",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Menu label"
+          },
+          "type": "Text"
+        },
+        "link": {
+          "config": {
+            "allowTargetBlank": true,
+            "label": "Link (page or web address)"
+          },
+          "type": "Link"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

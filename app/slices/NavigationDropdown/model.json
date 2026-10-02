@@ -1,0 +1,44 @@
+{
+  "id": "navigation_dropdown",
+  "name": "Navigation Dropdown",
+  "type": "SharedSlice",
+  "variations": [
+    {
+      "description": "Default",
+      "docURL": "",
+      "id": "default",
+      "imageUrl": "",
+      "name": "Default",
+      "primary": {
+        "label": {
+          "config": {
+            "label": "Dropdown label (opens the sub-menu)"
+          },
+          "type": "Text"
+        },
+        "links": {
+          "config": {
+            "fields": {
+              "label": {
+                "config": {
+                  "label": "Label"
+                },
+                "type": "Text"
+              },
+              "link": {
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link (page or web address)"
+                },
+                "type": "Link"
+              }
+            },
+            "label": "Sub-menu links"
+          },
+          "type": "Group"
+        }
+      },
+      "version": ""
+    }
+  ]
+}

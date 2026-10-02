@@ -1,0 +1,85 @@
+{
+  "format": "page",
+  "id": "page",
+  "json": {
+    "SEO": {
+      "meta_title": {
+        "config": {
+          "label": "Meta title (browser tab & search results)",
+          "placeholder": "Leave empty to use the page name, e.g. Bookings | Ghost Street"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta description (search results & social shares)",
+          "placeholder": "One or two sentences summarising the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Social share image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "json_ld": {
+        "config": {
+          "label": "Structured data (JSON-LD schema), paste raw JSON",
+          "multi": "preformatted",
+          "placeholder": "{\"@context\": \"https://schema.org\", ...}"
+        },
+        "type": "StructuredText"
+      }
+    },
+    "Content": {
+      "uid": {
+        "config": {
+          "label": "URL slug (e.g. bookings → /bookings/)"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "config": {
+          "label": "Heading (H1)",
+          "single": "heading1"
+        },
+        "type": "StructuredText"
+      },
+      "side_image": {
+        "config": {
+          "label": "Left column image (under the heading)"
+        },
+        "type": "Image"
+      },
+      "body": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Body text (right column)",
+          "labels": [
+            "tight",
+            "gold-small",
+            "red-serif"
+          ],
+          "multi": "paragraph,strong,em,hyperlink,heading3,heading4,list-item,o-list-item"
+        },
+        "type": "StructuredText"
+      },
+      "show_booking_widget": {
+        "config": {
+          "default_value": false,
+          "label": "Show the online booking widget under the text"
+        },
+        "type": "Boolean"
+      }
+    }
+  },
+  "label": "Page",
+  "repeatable": true,
+  "status": true
+}

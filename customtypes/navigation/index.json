@@ -1,0 +1,25 @@
+{
+  "format": "custom",
+  "id": "navigation",
+  "json": {
+    "Menu": {
+      "slices": {
+        "config": {
+          "choices": {
+            "navigation_link": {
+              "type": "SharedSlice"
+            },
+            "navigation_dropdown": {
+              "type": "SharedSlice"
+            }
+          }
+        },
+        "fieldset": "Slice Zone",
+        "type": "Slices"
+      }
+    }
+  },
+  "label": "Navigation",
+  "repeatable": false,
+  "status": true
+}

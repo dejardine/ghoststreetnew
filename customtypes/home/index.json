@@ -1,0 +1,161 @@
+{
+  "format": "page",
+  "id": "home",
+  "json": {
+    "SEO": {
+      "meta_title": {
+        "config": {
+          "label": "Meta title (browser tab & search results)",
+          "placeholder": "Leave empty to use the page name, e.g. Bookings | Ghost Street"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta description (search results & social shares)",
+          "placeholder": "One or two sentences summarising the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Social share image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "json_ld": {
+        "config": {
+          "label": "Structured data (JSON-LD schema), paste raw JSON",
+          "multi": "preformatted",
+          "placeholder": "{\"@context\": \"https://schema.org\", ...}"
+        },
+        "type": "StructuredText"
+      }
+    },
+    "Hero": {
+      "hero_video": {
+        "config": {
+          "label": "Hero video (desktop & tablet, MP4, plays muted on loop)",
+          "select": "media"
+        },
+        "type": "Link"
+      },
+      "cover_image": {
+        "config": {
+          "label": "Hero image – phone landscape (shown instead of the video on phones)"
+        },
+        "type": "Image"
+      },
+      "cover_image_mobile": {
+        "config": {
+          "label": "Hero image – phone portrait"
+        },
+        "type": "Image"
+      },
+      "hero_link": {
+        "config": {
+          "allowTargetBlank": true,
+          "allowText": true,
+          "label": "Announcement link (top-left of hero; shown only when link text is filled)"
+        },
+        "type": "Link"
+      }
+    },
+    "Teasers": {
+      "teaser_1_image": {
+        "config": {
+          "label": "Teaser 1 (top left) – image"
+        },
+        "type": "Image"
+      },
+      "teaser_1_text": {
+        "config": {
+          "label": "Teaser 1 – text over image (optional)",
+          "single": "paragraph,strong,em"
+        },
+        "type": "StructuredText"
+      },
+      "teaser_1_link": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Teaser 1 – link (optional)"
+        },
+        "type": "Link"
+      },
+      "teaser_2_image": {
+        "config": {
+          "label": "Teaser 2 (top right) – image"
+        },
+        "type": "Image"
+      },
+      "teaser_2_text": {
+        "config": {
+          "label": "Teaser 2 – text under the menu icon",
+          "single": "paragraph,strong,em"
+        },
+        "type": "StructuredText"
+      },
+      "teaser_2_link": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Teaser 2 – link (optional)"
+        },
+        "type": "Link"
+      },
+      "reviews_image": {
+        "config": {
+          "label": "Teaser 3 (bottom left) – background illustration behind reviews"
+        },
+        "type": "Image"
+      },
+      "reviews": {
+        "config": {
+          "fields": {
+            "quote": {
+              "config": {
+                "label": "Quote (include quotation marks)"
+              },
+              "type": "Text"
+            },
+            "citation": {
+              "config": {
+                "label": "Reviewer, publication"
+              },
+              "type": "Text"
+            }
+          },
+          "label": "Teaser 3 – reviews (rotate every 6 seconds)"
+        },
+        "type": "Group"
+      },
+      "teaser_4_image": {
+        "config": {
+          "label": "Teaser 4 (bottom right) – image"
+        },
+        "type": "Image"
+      },
+      "teaser_4_text": {
+        "config": {
+          "label": "Teaser 4 – text over image (optional)",
+          "single": "paragraph,strong,em"
+        },
+        "type": "StructuredText"
+      },
+      "teaser_4_link": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Teaser 4 – link (optional)"
+        },
+        "type": "Link"
+      }
+    }
+  },
+  "label": "Home",
+  "repeatable": false,
+  "status": true
+}

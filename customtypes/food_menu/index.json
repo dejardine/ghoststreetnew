@@ -1,0 +1,79 @@
+{
+  "format": "page",
+  "id": "food_menu",
+  "json": {
+    "SEO": {
+      "meta_title": {
+        "config": {
+          "label": "Meta title (browser tab & search results)",
+          "placeholder": "Leave empty to use the page name, e.g. Bookings | Ghost Street"
+        },
+        "type": "Text"
+      },
+      "meta_description": {
+        "config": {
+          "label": "Meta description (search results & social shares)",
+          "placeholder": "One or two sentences summarising the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Social share image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "json_ld": {
+        "config": {
+          "label": "Structured data (JSON-LD schema), paste raw JSON",
+          "multi": "preformatted",
+          "placeholder": "{\"@context\": \"https://schema.org\", ...}"
+        },
+        "type": "StructuredText"
+      }
+    },
+    "Content": {
+      "title": {
+        "config": {
+          "label": "Page name (H1 for screen readers & search engines; not shown visually)"
+        },
+        "type": "Text"
+      },
+      "cover_image": {
+        "config": {
+          "label": "Background image"
+        },
+        "type": "Image"
+      },
+      "menus": {
+        "config": {
+          "fields": {
+            "label": {
+              "config": {
+                "label": "Button label"
+              },
+              "type": "Text"
+            },
+            "file": {
+              "config": {
+                "label": "Menu PDF (upload a new file to replace)",
+                "select": "media"
+              },
+              "type": "Link"
+            }
+          },
+          "label": "Menu buttons (top to bottom)"
+        },
+        "type": "Group"
+      }
+    }
+  },
+  "label": "Food Menu",
+  "repeatable": false,
+  "status": true
+}

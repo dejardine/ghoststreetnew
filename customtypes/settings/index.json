@@ -1,0 +1,133 @@
+{
+  "format": "custom",
+  "id": "settings",
+  "json": {
+    "Footer": {
+      "newsletter_heading": {
+        "config": {
+          "label": "Newsletter heading",
+          "placeholder": "Sign up"
+        },
+        "type": "Text"
+      },
+      "social_link_label": {
+        "config": {
+          "label": "Footer link that opens the social overlay",
+          "placeholder": "Social"
+        },
+        "type": "Text"
+      },
+      "footer_note": {
+        "config": {
+          "label": "Note above the venue name (e.g. Open 7 days a week)",
+          "multi": "paragraph,strong,em,hyperlink"
+        },
+        "type": "StructuredText"
+      },
+      "venue_name": {
+        "config": {
+          "label": "Venue name (footer heading)"
+        },
+        "type": "Text"
+      },
+      "phone": {
+        "config": {
+          "label": "Phone number"
+        },
+        "type": "Text"
+      },
+      "email": {
+        "config": {
+          "label": "Email address"
+        },
+        "type": "Text"
+      },
+      "opening_hours": {
+        "config": {
+          "label": "Opening hours (one line per day group; Shift+Enter for a new line)",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "address": {
+        "config": {
+          "label": "Address & directions (Shift+Enter for a new line)",
+          "single": "paragraph"
+        },
+        "type": "StructuredText"
+      },
+      "map_link": {
+        "config": {
+          "allowTargetBlank": true,
+          "allowText": true,
+          "label": "Directions link (Google Maps)",
+          "select": "web"
+        },
+        "type": "Link"
+      },
+      "map_file": {
+        "config": {
+          "allowText": true,
+          "label": "Map image or PDF",
+          "select": "media"
+        },
+        "type": "Link"
+      },
+      "copyright": {
+        "config": {
+          "label": "Copyright line (the © and current year are added automatically)"
+        },
+        "type": "Text"
+      }
+    },
+    "Social": {
+      "social_links": {
+        "config": {
+          "fields": {
+            "platform": {
+              "config": {
+                "label": "Platform (sets the icon)",
+                "options": [
+                  "instagram",
+                  "facebook",
+                  "twitter"
+                ]
+              },
+              "type": "Select"
+            },
+            "url": {
+              "config": {
+                "allowTargetBlank": true,
+                "label": "Profile URL",
+                "select": "web"
+              },
+              "type": "Link"
+            }
+          },
+          "label": "Social links (menu & social overlay)"
+        },
+        "type": "Group"
+      }
+    },
+    "Special notice": {
+      "special_link_label": {
+        "config": {
+          "label": "Footer link text that opens the notice (leave empty to hide the notice)",
+          "placeholder": "e.g. Holiday hours"
+        },
+        "type": "Text"
+      },
+      "special_notice": {
+        "config": {
+          "allowTargetBlank": true,
+          "label": "Notice shown in a full-screen overlay (e.g. special or holiday hours)",
+          "multi": "paragraph,heading4,strong,em,hyperlink"
+        },
+        "type": "StructuredText"
+      }
+    }
+  },
+  "label": "Settings",
+  "repeatable": false,
+  "status": true
+}
