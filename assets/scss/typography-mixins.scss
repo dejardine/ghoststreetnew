@@ -1,0 +1,27 @@
+/*
+ * Families: the theme registers Financier Text as "light" and Financier Display as "display".
+ * Roles set size and leading from tokens in typography.scss; the root size is 12px (75%).
+ */
+@mixin lightFont {
+  font-family: 'Financier Text', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin displayFont {
+  font-family: 'Financier Display', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 22/28 → 18/24 on tablet. Footer copy, citations, headings in copy. */
+@mixin smallType {
+  font-size: var(--small);
+  line-height: var(--small-l);
+}
+
+/* 30/30 → (component-specific overrides). Teasers, menu, menu buttons. */
+@mixin mediumType {
+  font-size: var(--medium);
+  line-height: var(--medium-l);
+}

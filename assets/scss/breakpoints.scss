@@ -1,0 +1,35 @@
+@use 'sass:map';
+
+/*
+ * Breakpoints carried over from the WordPress theme's compiled CSS (master.css).
+ * Desktop is the unbreakpointed base. Order overrides wide → narrow.
+ */
+$breakpoints: (
+  laptop: 'only screen and (max-width: 1440px)',
+  tablet: 'only screen and (max-width: 1024px)',
+  tabletPortrait: 'only screen and (max-width: 1024px) and (orientation: portrait)',
+  mobile: 'only screen and (max-width: 767px)',
+  mobileLandscape: 'only screen and (max-width: 767px) and (orientation: landscape)',
+);
+
+@mixin breakpoint($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error 'Unknown breakpoint `#{$name}`';
+  }
+  @media #{map.get($breakpoints, $name)} {
+    @content;
+  }
+}
+
+/* Devices with a precise pointer and hover; the theme skipped scroll reveals on touch devices. */
+@mixin finePointer {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}
+
+@mixin reducedMotion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

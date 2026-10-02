@@ -1,0 +1,120 @@
+/* tmpl.booking.php / page.php: heading + image left, copy (and booking widget) right. */
+.booking-content {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 120rem;
+  margin: 0 auto;
+  /* The theme's .columns padding-bottom (12rem → 3rem → 8rem → 16rem) never rendered:
+     .wysiwyg { padding-bottom: 0 } came later in master.css and cancelled it at every width. */
+  padding-bottom: 0;
+
+  @include breakpoint(mobile) {
+    flex-direction: column;
+    margin: 4rem auto;
+  }
+
+  .left,
+  .right {
+    position: relative;
+    top: 10rem;
+    width: 50%;
+    padding: 12rem 0;
+
+    @include breakpoint(tablet) {
+      top: 0;
+      padding: 6rem 0;
+    }
+    @include breakpoint(mobile) {
+      width: 100%;
+      padding: 0;
+    }
+  }
+
+  .left {
+    @include breakpoint(mobile) {
+      order: 1;
+    }
+
+    h1 {
+      position: absolute;
+      top: 10rem;
+      left: 0;
+      width: 100%;
+      margin: 0;
+      color: var(--red);
+      @include displayFont;
+      font-size: 4rem;
+      line-height: 4rem;
+      text-align: center;
+
+      @include breakpoint(tablet) {
+        top: 6rem;
+      }
+      @include breakpoint(mobile) {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+      }
+    }
+
+    img {
+      width: 100%;
+      max-width: 50%;
+      margin: 0 auto;
+    }
+  }
+
+  .right {
+    @include breakpoint(mobile) {
+      order: 2;
+      margin-top: 0;
+    }
+  }
+
+  p {
+    max-width: 65rem;
+    margin: 0 0 1.5rem;
+    color: var(--taupe);
+    @include lightFont;
+    font-size: 1.85rem;
+    line-height: 2rem;
+
+    @include breakpoint(mobile) {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+
+    strong {
+      color: var(--red);
+      @include displayFont;
+      font-size: 2rem;
+      line-height: 2rem;
+    }
+
+    a {
+      color: var(--red);
+    }
+
+    /*
+     * Labels preserving Word-paste formatting that production rendered:
+     * "tight" = MsoNormal paragraph (no gap after, normal leading),
+     * "red-serif" = red Georgia heading, "gold-small" = 12pt gold hours.
+     */
+    &:has(.tight) {
+      margin-bottom: 0;
+      line-height: normal;
+    }
+
+    .red-serif {
+      font-family: Georgia, serif;
+      color: #f00;
+    }
+
+    .gold-small {
+      font-size: 16px;
+      color: var(--gold);
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# Legacy WordPress URLs (see MIGRATION.md → URL map). Netlify applies this file; keep rules here,
+# not in netlify.toml. Trailing-slash variants are normalised by Netlify's pretty URLs.
+
+/home                     /                         301
+/home/                    /                         301
+/menu/to-eat/             /menu/                    301
+/menu/to-drink/           /menu/                    301
+/menu/chefs-menu/         /menu/                    301
+/menu/vegan-set-menu/     /menu/                    301
+/menu/to-eat              /menu/                    301
+/menu/to-drink            /menu/                    301
+/menu/chefs-menu          /menu/                    301
+/menu/vegan-set-menu      /menu/                    301
+/vouchers                 https://vouchers.appropo.io/cafe-hanoi-ghost-street/checkout  301
+/vouchers/                https://vouchers.appropo.io/cafe-hanoi-ghost-street/checkout  301
+/author/*                 /                         301
+/feed                     /                         301
+/feed/                    /                         301
+/comments/feed/           /                         301
+/wp-sitemap.xml           /sitemap.xml              301
+/wp-sitemap-*             /sitemap.xml              301
+/wp-admin/*               /                         301
+/wp-login.php             /                         301

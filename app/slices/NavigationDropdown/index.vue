@@ -1,20 +1,22 @@
 <script setup lang="ts">
-import type { Content } from "@prismicio/client";
+import type { Content } from '@prismicio/client'
 
-// The array passed to `getSliceComponentProps` is purely optional.
-// Consider it as a visual hint for you when templating your slice.
-defineProps(getSliceComponentProps<Content.NavigationDropdownSlice>(
-	["slice", "index", "slices", "context"]
-));
+const props = defineProps(getSliceComponentProps<Content.NavigationDropdownSlice>(['slice', 'index', 'slices', 'context']))
+const open = ref(false)
+const id = computed(() => `sub-menu-${props.index}`)
 </script>
 
 <template>
-	<section
-		:data-slice-type="slice.slice_type"
-		:data-slice-variation="slice.variation"
-	>
-		Placeholder component for {{ slice.slice_type }} (variation: {{ slice.variation }}) slices.
-		<br />
-		<strong>You can edit this slice directly in your code editor.</strong>
-	</section>
+  <li class="menu-item menu-item-has-children">
+    <button type="button" class="sub-toggle" :aria-expanded="open" :aria-controls="id" @click="open = !open">
+      {{ slice.primary.label }}
+    </button>
+    <div :id="id" class="sub-menu-wrap" :class="{ open }" :inert="!open">
+      <ul class="sub-menu">
+        <li v-for="(item, i) in slice.primary.links" :key="i" class="menu-item">
+          <PrismicLink :field="item.link">{{ item.label }}</PrismicLink>
+        </li>
+      </ul>
+    </div>
+  </li>
 </template>

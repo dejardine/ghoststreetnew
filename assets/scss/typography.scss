@@ -1,0 +1,75 @@
+:root {
+  --small: 1.833rem;
+  --small-l: 2.333rem;
+  --medium: 2.5rem;
+  --medium-l: 2.5rem;
+}
+
+@include breakpoint(tablet) {
+  :root {
+    --small: 1.5rem;
+    --small-l: 2rem;
+  }
+}
+
+html {
+  font-size: 75%;
+  @include lightFont;
+  -webkit-font-smoothing: antialiased;
+}
+
+body,
+p,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+a {
+  text-rendering: geometricPrecision;
+  font-weight: normal;
+}
+
+body {
+  font-size: 1rem;
+  color: var(--white);
+  @include lightFont;
+}
+
+p,
+ul,
+ol {
+  margin: 0 0 1.5rem;
+  font-size: 1.25rem;
+  line-height: 1.5rem;
+}
+
+ul,
+ol {
+  margin: 2rem 0 1.5rem;
+  padding-left: 1.25rem;
+}
+
+ul li,
+ol li {
+  margin-bottom: 1rem;
+}
+
+h1 {
+  @include lightFont;
+  font-size: 5.5rem;
+  line-height: 1;
+  margin: 0 0 5rem;
+}
+
+h3 {
+  @include lightFont;
+  font-size: 1.833rem;
+  line-height: 2.333rem;
+}
+
+h4 {
+  font-weight: normal;
+}

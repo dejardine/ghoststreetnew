@@ -1,0 +1,129 @@
+:root {
+  --bg: #1e1619;
+  --white: #fff;
+  --black: #000;
+  --red: #ce0e2d; /* links, headings */
+  --red-bright: #e91c24; /* home teaser copy */
+  --red-menu: #d53932; /* menu panel, menu buttons, reviews block */
+  --red-dark: #a1161a; /* hamburger */
+  --taupe: #968375; /* footer + page copy */
+  --gold: #b6b266;
+  --overlay: rgb(0 0 0 / 0.8);
+  --ease: #{$ease};
+  --gutter: 1rem; /* 12px: the theme sets html to 75% */
+}
+
+html,
+body {
+  width: 100%;
+}
+
+body {
+  background: var(--bg);
+}
+
+/* Off-canvas menu and overlays never cause horizontal scroll. */
+.site-shell {
+  position: relative;
+  display: flow-root; /* contain child margins so absolute header/menu stay at the very top */
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  position: relative;
+  color: var(--red);
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 3px;
+}
+
+.wrap {
+  position: relative;
+  z-index: 10;
+  width: 90%;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Logo mark (no intrinsic size; scales like `contain` inside its box). */
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 10vw;
+  height: 10vw;
+  margin: -5vw 0 0 -5vw;
+  background: url('/images/logo.svg') no-repeat center center;
+  font-size: 0;
+  color: transparent;
+
+  @include breakpoint(tablet) {
+    width: 15vw;
+    height: 15vw;
+    margin: -7.5vw 0 0 -7.5vw;
+  }
+  @include breakpoint(tabletPortrait) {
+    width: 20vw;
+    height: 20vw;
+    margin: -10vw 0 0 -10vw;
+  }
+  @include breakpoint(mobile) {
+    width: 30vw;
+    height: 30vw;
+    margin: -15vw 0 0 -15vw;
+  }
+  @include breakpoint(mobileLandscape) {
+    width: 15vw;
+    height: 15vw;
+    margin: -7.5vw 0 0 -7.5vw;
+  }
+}
+
+.visually-hidden {
+  @include visuallyHidden;
+}
+
+/* ── Scroll reveals (theme: waypoints + velocity, skipped on touch devices) ── */
+@include finePointer {
+  .js .fade-in {
+    opacity: 0;
+    transition: opacity 1500ms var(--ease) 200ms;
+  }
+  .js .fade-in.is-visible {
+    opacity: 1;
+  }
+}
+
+/* ── Page transitions: short crossfade between routes ── */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 350ms ease;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+
+@include reducedMotion {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .fade-in {
+    opacity: 1 !important;
+  }
+}

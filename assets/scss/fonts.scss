@@ -1,0 +1,24 @@
+/*
+ * Klim Type Foundry's Financier, licensed web fonts supplied with the WordPress theme.
+ * WOFF2 is converted from the served WOFF (v1.2, the build production rendered); the WOFF
+ * is kept as a fallback. Not subset: the licence covers the full files.
+ */
+@font-face {
+  font-family: 'Financier Text';
+  src:
+    url('/fonts/financier-text-web-regular.woff2') format('woff2'),
+    url('/fonts/financier-text-web-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Financier Display';
+  src:
+    url('/fonts/financier-display-web-regular.woff2') format('woff2'),
+    url('/fonts/financier-display-web-regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
