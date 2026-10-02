@@ -30,3 +30,6 @@ wordpress/
 
 # Migration scratch
 scripts/.cache/
+
+# Local Netlify folder
+.netlify
