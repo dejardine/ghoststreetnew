@@ -6,7 +6,7 @@
       "meta_title": {
         "config": {
           "label": "Meta title (browser tab & search results)",
-          "placeholder": "Leave empty to use the page name, e.g. Bookings | Ghost Street"
+          "placeholder": "Page name for the browser tab, e.g. Bookings (\" | Ghost Street\" is added automatically). Empty = page heading."
         },
         "type": "Text"
       },

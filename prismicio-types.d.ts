@@ -79,7 +79,7 @@ interface FoodMenuDocumentData {
 	 * Meta title (browser tab & search results) field in *Food Menu*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Leave empty to use the page name, e.g. Bookings | Ghost Street
+	 * - **Placeholder**: Page name for the browser tab, e.g. Bookings (" | Ghost Street" is added automatically). Empty = page heading.
 	 * - **API ID Path**: food_menu.meta_title
 	 * - **Tab**: SEO
 	 * - **Documentation**: https://prismic.io/docs/fields/text
@@ -195,7 +195,7 @@ interface HomeDocumentData {
 	 * Meta title (browser tab & search results) field in *Home*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Leave empty to use the page name, e.g. Bookings | Ghost Street
+	 * - **Placeholder**: Page name for the browser tab, e.g. Bookings (" | Ghost Street" is added automatically). Empty = page heading.
 	 * - **API ID Path**: home.meta_title
 	 * - **Tab**: SEO
 	 * - **Documentation**: https://prismic.io/docs/fields/text
@@ -445,7 +445,7 @@ interface PageDocumentData {
 	 * Meta title (browser tab & search results) field in *Page*
 	 *
 	 * - **Field Type**: Text
-	 * - **Placeholder**: Leave empty to use the page name, e.g. Bookings | Ghost Street
+	 * - **Placeholder**: Page name for the browser tab, e.g. Bookings (" | Ghost Street" is added automatically). Empty = page heading.
 	 * - **API ID Path**: page.meta_title
 	 * - **Tab**: SEO
 	 * - **Documentation**: https://prismic.io/docs/fields/text
