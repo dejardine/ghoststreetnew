@@ -17,7 +17,8 @@ export default defineNuxtPlugin((nuxtApp) => {
     }))
 
   const reveal: Directive<HTMLElement> = {
-    getSSRProps: () => ({ class: 'fade-in' }),
+    /* Prerendered with .fade-in so nothing flashes before hydration; the client adds it in mounted. */
+    getSSRProps: () => ({ class: 'fade-in', 'data-allow-mismatch': 'class' }),
     mounted(el) {
       el.classList.add('fade-in')
       getObserver().observe(el)

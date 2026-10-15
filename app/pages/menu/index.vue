@@ -4,7 +4,7 @@ import * as prismic from '@prismicio/client'
 const page = await useSingleDocument('food_menu')
 const d = computed(() => page.value.data)
 
-usePageSeo(() => ({ data: d.value, pageName: d.value.title, path: '/menu/' }))
+usePageSeo(() => ({ data: d.value, pageName: d.value.title, path: '/menu/', fallbackImage: d.value.cover_image }))
 
 /* The theme printed WordPress's 2560×1440 and 767×431 crops; imgix reproduces them. */
 const crop = (width: number, height: number) =>

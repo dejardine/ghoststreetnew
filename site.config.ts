@@ -29,6 +29,15 @@ export const site = {
     /** No-JS fallback: the switchboard URL embed-iframe.js builds for this restaurant. */
     fallbackUrl: 'https://book.reshub.co.nz/?est=ghoststreet',
   },
+  /**
+   * Social share fallbacks, used when a page has no Social share image / Meta description.
+   * The image is the homepage hero (incense smoke) in the Prismic media library, cropped to 1200×630.
+   */
+  share: {
+    image: 'https://images.prismic.io/ghoststreet/OORmTlB4GopglBmU_homepage-hero-1-scaled.jpg?auto=format,compress&w=1200&h=630&fit=crop',
+    imageAlt: 'A stick of incense smoking against a black background',
+    description: "A reimagining of the heady hole-in-the-wall eateries along Beijing's famous food street. Britomart, Auckland.",
+  },
   /** Mailchimp list shared with Cafe Hanoi (same form as the live footer). */
   mailchimp: {
     action: 'https://cafehanoi.us2.list-manage.com/subscribe/post',

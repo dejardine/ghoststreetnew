@@ -8,6 +8,8 @@ import { site } from '~~/site.config'
  */
 const el = ref<HTMLElement>()
 const { script, attrs, minHeight, fallbackUrl } = site.booking
+/* As a string: with scripting on, browsers parse <noscript> content as text, so child elements would never hydrate. */
+const noscript = `<p><a href="${fallbackUrl}" target="_blank" rel="noopener">Book a table online</a></p>`
 
 type EveveWindow = Window & { EveveWidget?: { init: (container: HTMLElement) => void } }
 
@@ -39,9 +41,7 @@ onMounted(() => {
 <template>
   <div class="booking-widget" :style="{ minHeight: `${minHeight}px` }">
     <div ref="el" class="eveve-widget" v-bind="attrs" />
-    <noscript>
-      <p><a :href="fallbackUrl" target="_blank" rel="noopener">Book a table online</a></p>
-    </noscript>
+    <noscript v-html="noscript" />
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 import * as prismic from '@prismicio/client'
+import { site } from '~~/site.config'
 
 type SeoFields = {
   meta_title?: prismic.KeyTextField
@@ -16,20 +17,24 @@ export function canonicalUrl(siteUrl: string, path: string) {
 /**
  * Owns a page's <title>, description, canonical and social tags.
  * Title: "<Meta title or page name> | Ghost Street"; the homepage is just "Ghost Street".
+ * Share image: Social share image → the page's own fallback image (e.g. its hero) → site default.
+ * Description: Meta description → site default.
  */
-export function usePageSeo(input: MaybeRefOrGetter<{ data: SeoFields; pageName?: string | null; path: string }>) {
+export function usePageSeo(
+  input: MaybeRefOrGetter<{ data: SeoFields; pageName?: string | null; path: string; fallbackImage?: prismic.ImageField }>,
+) {
   const { siteName, siteUrl } = useRuntimeConfig().public
   const seo = computed(() => {
-    const { data, pageName, path } = toValue(input)
+    const { data, pageName, path, fallbackImage } = toValue(input)
     const name = data.meta_title?.trim() || pageName?.trim() || ''
     const title = !name ? siteName : name.includes(siteName) ? name : `${name} | ${siteName}`
-    const image = prismic.isFilled.image(data.meta_image) ? data.meta_image : null
+    const image = [data.meta_image, fallbackImage].find((field) => prismic.isFilled.image(field))
     return {
       title,
-      description: data.meta_description?.trim() || undefined,
+      description: data.meta_description?.trim() || site.share.description,
       url: canonicalUrl(siteUrl, path),
-      image: image ? prismic.asImageSrc(image, { width: 1200, height: 630, fit: 'crop' }) : undefined,
-      imageAlt: image?.alt ?? undefined,
+      image: image ? prismic.asImageSrc(image, { width: 1200, height: 630, fit: 'crop' })! : site.share.image,
+      imageAlt: image ? image.alt || undefined : site.share.imageAlt,
     }
   })
 
@@ -43,10 +48,13 @@ export function usePageSeo(input: MaybeRefOrGetter<{ data: SeoFields; pageName?:
     ogDescription: () => seo.value.description,
     ogUrl: () => seo.value.url,
     ogImage: () => seo.value.image,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
     ogImageAlt: () => seo.value.imageAlt,
     twitterTitle: () => seo.value.title,
     twitterDescription: () => seo.value.description,
     twitterImage: () => seo.value.image,
+    twitterImageAlt: () => seo.value.imageAlt,
   })
   useJsonLd(() => toValue(input).data.json_ld)
 }

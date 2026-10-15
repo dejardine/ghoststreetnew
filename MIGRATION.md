@@ -125,7 +125,7 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
   `https://book.reshub.co.nz/?est=ghoststreet`; re-initialises after client-side navigation.
 - **Mailchimp** (list shared with Cafe Hanoi): same list and behaviour (Enter submits, inline
   message) via JSONP, no jQuery; without JS it posts to Mailchimp in a new tab as before.
-  *Please confirm the client still wants this signup; it posts to the Cafe Hanoi account.*
+  Client confirmed (Oct 2026) that the signup stays, posting to the Cafe Hanoi account.
 - **Social overlay**: footer "Social" opens the full-screen icons overlay (Instagram, Facebook).
 - **Seasonal notice overlay**: kept but empty (the live option contained just "nothing" and had no
   trigger link). Fill both Settings → *Special notice* fields to show a footer link + overlay.
@@ -157,13 +157,18 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
 ## 7. SEO
 
 - `usePageSeo()` on every page: title, description, canonical (`https://ghoststreetakl.nz/<path>/`),
-  `og:url` = canonical, OG/Twitter image from *Social share image*.
-- `useJsonLd()` emits the editor's JSON-LD (validated, `</` escaped). Drafts for all five pages are
-  staged (unpublished) — see [`docs/seo-schemas/README.md`](docs/seo-schemas/README.md), which also
+  `og:url` = canonical, OG/Twitter image (1200×630 crop) and alt.
+  Fallbacks: share image = *Social share image* → the page's own hero (Home cover, Food Menu
+  background) → site default (the Home hero, `site.share` in `site.config.ts`); description =
+  *Meta description* → `site.share.description`. Every page always has an `og:image`.
+- `useJsonLd()` emits the editor's JSON-LD (validated, `</` escaped). It is published on all five
+  pages (opening hours deliberately left out) — see [`docs/seo-schemas/README.md`](docs/seo-schemas/README.md), which also
   lists contradictions in the client's content (opening hours) that are deliberately not encoded.
 - `/sitemap.xml` (from Prismic, absolute, trailing slashes), `/robots.txt` (points at it).
 - SEO fields after migration: `meta_title` = WordPress page titles on the three pages; everything else
   empty (production had no descriptions). No stray values.
+- Meta titles and descriptions for all five pages are staged (unpublished) in the Prismic release
+  **"SEO: meta titles & descriptions"** — review and publish it there.
 
 ## 8. Verification (latest run)
 
@@ -178,15 +183,14 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
 ## 9. Follow-ups for the client
 
 1. Confirm opening hours (three versions on the current site) — then add them to the Home JSON-LD.
-2. Review and publish the staged JSON-LD drafts (Prismic → Migration release).
-3. Confirm the Mailchimp signup (Cafe Hanoi list) should stay.
-4. Supply a favicon / social share image if wanted (none exists today).
-5. Write meta descriptions (none exist today).
-6. A real end-to-end preview from the Prismic editor (Preview button on a draft) should be clicked
+2. Review the JSON-LD now live on all five pages (it was published without a client review).
+3. Review and publish the release "SEO: meta titles & descriptions" (titles + descriptions, all pages).
+4. Supply a favicon, and a dedicated social share image if wanted (the Home hero is used meanwhile).
+5. A real end-to-end preview from the Prismic editor (Preview button on a draft) should be clicked
    through once; the flow is tested on staging with a simulated session.
-7. Optional: an SEO landing-page type (kicker, H1, facts, slideshow, FAQs, enquiry CTA) is available
+6. Optional: an SEO landing-page type (kicker, H1, facts, slideshow, FAQs, enquiry CTA) is available
    from previous projects if the client wants campaign pages.
-8. The old Prismic slice-simulator URL (`localhost:3000/slice-simulator`) is still registered by the
+7. The old Prismic slice-simulator URL (`localhost:3000/slice-simulator`) is still registered by the
    CLI default; it is unused and can be ignored or removed in Prismic settings.
 
 ## 10. Cutover checklist

@@ -1,8 +1,9 @@
 # Structured data drafts (JSON-LD)
 
 Editor-owned schema for each page, staged by `scripts/stage-schemas.ts` into the page's
-**SEO → Structured data (JSON-LD schema)** field as **unpublished drafts** in Prismic's
-*Migration release*. Nothing here is live until someone reviews and publishes it in Prismic.
+**SEO → Structured data (JSON-LD schema)** field as drafts in Prismic's *Migration release*.
+**These have since been published** (the release is empty and all five pages carry this JSON-LD,
+checked October 2026) without a client review; the opening hours are still deliberately left out.
 
 | File | Prismic document | Types |
 | --- | --- | --- |
