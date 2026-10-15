@@ -4,7 +4,7 @@ import * as prismic from '@prismicio/client'
 const page = await useSingleDocument('home')
 const d = computed(() => page.value.data)
 
-usePageSeo(() => ({ data: d.value, pageName: null, path: '/', fallbackImage: d.value.cover_image }))
+usePageSeo(() => ({ data: d.value, pageName: null, path: '/' }))
 
 /* WordPress crops the theme printed for the phone hero, reproduced with imgix. */
 const crop = (field: prismic.ImageField, width: number, height: number) =>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { NuxtError } from '#app'
+import { site } from '~~/site.config'
 
 /* A 404 means the page doesn't exist; anything else means content failed to load. */
 const props = defineProps<{ error: NuxtError }>()
@@ -9,6 +10,21 @@ const { siteName } = useRuntimeConfig().public
 useHead({
   title: () => (notFound.value ? `Page not found | ${siteName}` : `Unable to load this page | ${siteName}`),
   meta: [{ name: 'robots', content: 'noindex' }],
+})
+
+/* Social tags for anyone sharing a broken link: site name, default description, homepage image. */
+const shareImage = useShareImage()
+useSeoMeta({
+  ogTitle: siteName,
+  ogDescription: site.share.description,
+  ogImage: () => shareImage.value.url,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageAlt: () => shareImage.value.alt,
+  twitterTitle: siteName,
+  twitterDescription: site.share.description,
+  twitterImage: () => shareImage.value.url,
+  twitterImageAlt: () => shareImage.value.alt,
 })
 </script>
 

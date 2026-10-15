@@ -31,7 +31,9 @@ export const site = {
   },
   /**
    * Social share fallbacks, used when a page has no Social share image / Meta description.
-   * The image is the homepage hero (incense smoke) in the Prismic media library, cropped to 1200×630.
+   * Pages take the homepage image live from Prismic (useShareImage); `image` is a copy of the
+   * homepage hero (incense smoke), cropped to 1200×630, for when Prismic can't be reached.
+   * `imageAlt` is used when the homepage image has no alt text.
    */
   share: {
     image: 'https://images.prismic.io/ghoststreet/OORmTlB4GopglBmU_homepage-hero-1-scaled.jpg?auto=format,compress&w=1200&h=630&fit=crop',

@@ -44,6 +44,16 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'en_NZ' },
         { name: 'twitter:card', content: 'summary_large_image' },
+        /* Defaults for the static 404/200 shells (scrapers don't run JS); pages replace them via usePageSeo. */
+        { name: 'description', content: site.share.description },
+        { property: 'og:title', content: site.name },
+        { property: 'og:description', content: site.share.description },
+        { property: 'og:image', content: site.share.image },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: site.share.imageAlt },
+        { name: 'twitter:image', content: site.share.image },
+        { name: 'twitter:image:alt', content: site.share.imageAlt },
       ],
       link: [
         { rel: 'preload', href: '/fonts/financier-text-web-regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },

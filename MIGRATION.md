@@ -158,9 +158,11 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
 
 - `usePageSeo()` on every page: title, description, canonical (`https://ghoststreetakl.nz/<path>/`),
   `og:url` = canonical, OG/Twitter image (1200×630 crop) and alt.
-  Fallbacks: share image = *Social share image* → the page's own hero (Home cover, Food Menu
-  background) → site default (the Home hero, `site.share` in `site.config.ts`); description =
-  *Meta description* → `site.share.description`. Every page always has an `og:image`.
+  Fallbacks: share image = the page's *Social share image* → the homepage image, read live from
+  Prismic (Home's *Social share image*, else its hero) → a copy of the hero in `site.share`
+  (`site.config.ts`) if Prismic is unreachable; description = *Meta description* →
+  `site.share.description`. The same defaults are in `nuxt.config.ts` head for the static
+  404/200 shells, so every URL a scraper fetches has an `og:image`.
 - `useJsonLd()` emits the editor's JSON-LD (validated, `</` escaped). It is published on all five
   pages (opening hours deliberately left out) — see [`docs/seo-schemas/README.md`](docs/seo-schemas/README.md), which also
   lists contradictions in the client's content (opening hours) that are deliberately not encoded.
