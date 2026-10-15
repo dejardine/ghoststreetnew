@@ -6,14 +6,12 @@ const d = computed(() => page.value.data)
 
 usePageSeo(() => ({ data: d.value, pageName: null, path: '/' }))
 
-/* WordPress crops the theme printed for the phone hero, reproduced with imgix. */
-const crop = (field: prismic.ImageField, width: number, height: number) =>
-  prismic.isFilled.image(field) ? prismic.asImageSrc(field, { w: width, h: height, fit: 'crop' }) : null
-const coverPortrait = computed(() => crop(d.value.cover_image_mobile, 767, 999))
-const coverLandscape = computed(() => crop(d.value.cover_image, 767, 431))
+/* Phone hero crops (767×999 portrait, 767×431 landscape), each with a 2x for retina screens. */
+const coverPortrait = computed(() => cropSet(d.value.cover_image_mobile, 767, 999))
+const coverLandscape = computed(() => cropSet(d.value.cover_image, 767, 431))
 const coverStyle = computed(() => ({
-  '--cover-portrait': coverPortrait.value ? `url("${coverPortrait.value}")` : undefined,
-  '--cover-landscape': coverLandscape.value ? `url("${coverLandscape.value}")` : undefined,
+  '--cover-portrait': coverPortrait.value?.css,
+  '--cover-landscape': coverLandscape.value?.css,
 }))
 const video = computed(() => (prismic.isFilled.linkToMedia(d.value.hero_video) ? d.value.hero_video.url : null))
 const heroLink = computed(() => (prismic.isFilled.link(d.value.hero_link) && d.value.hero_link.text ? d.value.hero_link : null))

@@ -51,7 +51,6 @@ useHead({
 <template>
   <div class="site-shell" @click="onShellClick">
     <div class="preloader" aria-hidden="true" />
-    <SocialOverlay />
     <SpecialOverlay />
     <SiteHeader />
     <SiteMenu />

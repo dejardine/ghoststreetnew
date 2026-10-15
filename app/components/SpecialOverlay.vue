@@ -28,6 +28,36 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 </template>
 
 <style lang="scss">
+/* Overlay fades over 1000ms; its close cross over 450ms (theme velocity timings). */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--overlay);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 1000ms ease,
+    visibility 0s linear 1000ms;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 1000ms ease,
+      visibility 0s;
+  }
+
+  .special-close {
+    opacity: 0;
+    transition: opacity 450ms ease;
+  }
+
+  &.open .special-close {
+    opacity: 1;
+  }
+}
+
 .special-overlay {
   .special-wrap {
     position: relative;

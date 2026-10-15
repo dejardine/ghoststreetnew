@@ -16,10 +16,18 @@ checked October 2026) without a client review; the opening hours are still delib
 The site emits the field exactly as entered (escaping `</`), and skips it if it isn't valid JSON.
 All `@id`s are stable: `https://ghoststreetakl.nz/#venue`, `/#website`, `<page>#webpage`, `<page>#breadcrumb`.
 
-## Facts used (all from the live site)
+## Facts used (all from published Prismic content)
 
 Name, phone, email, street address, cuisine ("rustic Chinese", "sublime Chinese food"), menu and
 booking pages, Instagram and Facebook profiles, and the homepage tagline.
+
+Added Oct 2026 to match the Cafe Hanoi build (staged in the Prismic release
+**"Structured data (Oct 2026)"**, unpublished until reviewed):
+- `Restaurant`: `image` (homepage hero), `logo` (`/images/logo.svg`), `geo` (the destination pin of
+  the Settings Google Maps link, on Tuawhiti Lane), `hasMap` (that link), `hasMenu` → the `Menu`
+  node, and a `ReserveAction` pointing at `/bookings/`.
+- Food Menu: a `Menu` (`/menu/#menu`, the page's `mainEntity`) with one `MenuSection` per PDF
+  button, named as on the page and linking to the PDF.
 
 ## Deliberately left out — please confirm with the client
 
@@ -29,7 +37,8 @@ booking pages, Instagram and Facebook profiles, and the homepage tagline.
     (these may be booking windows rather than opening hours)
   - Pickup page: Sun–Thu 5–8.30pm · Fri–Sat 5–7pm (pick-up only)
   Once confirmed, add `openingHoursSpecification` to the `Restaurant` node.
-- **Postcode, geo coordinates, price range, ratings, images.** Not stated on the site; never invented.
+- **Postcode, price range, ratings, parent company.** Not stated in the site's content; never invented
+  (Cafe Hanoi lists Comensa as owner from its footer — Ghost Street's content doesn't say).
 - **Private events capacity** (44 seated / 50 standing, The Parlour) is about a separate venue
   (theparlour.nz); not encoded here.
 

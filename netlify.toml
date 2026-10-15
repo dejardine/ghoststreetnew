@@ -35,6 +35,29 @@
     Cache-Control = "public, max-age=31536000, immutable"
     Access-Control-Allow-Origin = "*"
 
+# Icons and logos aren't hashed, so a week (then revalidate) rather than immutable;
+# rename a file if it must change sooner. Same rule as the Cafe Hanoi build.
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, must-revalidate"
+
+# Legacy upload paths kept so old links (menu PDFs, map) still resolve; the files never change.
+[[headers]]
+  for = "/wp-content/uploads/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]

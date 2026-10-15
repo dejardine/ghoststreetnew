@@ -5,7 +5,7 @@
       "@type": "WebPage",
       "@id": "https://ghoststreetakl.nz/menu/#webpage",
       "url": "https://ghoststreetakl.nz/menu/",
-      "name": "Food Menu | Ghost Street",
+      "name": "Food & Drink Menus | Ghost Street",
       "isPartOf": {
         "@id": "https://ghoststreetakl.nz/#website"
       },
@@ -15,7 +15,39 @@
       "breadcrumb": {
         "@id": "https://ghoststreetakl.nz/menu/#breadcrumb"
       },
-      "inLanguage": "en-NZ"
+      "inLanguage": "en-NZ",
+      "mainEntity": {
+        "@id": "https://ghoststreetakl.nz/menu/#menu"
+      }
+    },
+    {
+      "@type": "Menu",
+      "@id": "https://ghoststreetakl.nz/menu/#menu",
+      "name": "Ghost Street menus",
+      "url": "https://ghoststreetakl.nz/menu/",
+      "inLanguage": "en-NZ",
+      "hasMenuSection": [
+        {
+          "@type": "MenuSection",
+          "name": "Vegetarian Set Menu",
+          "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/thzWUj3WefSJ-eWB_Chefs-Vege-Menu00726.pdf"
+        },
+        {
+          "@type": "MenuSection",
+          "name": "Chef's Menu",
+          "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/s4tc0ZFzakjWgxGF_Chefs-Menu00726.pdf"
+        },
+        {
+          "@type": "MenuSection",
+          "name": "To Drink",
+          "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/SZDKTiKYBYqisP-j_GS-Drinks-3007.pdf"
+        },
+        {
+          "@type": "MenuSection",
+          "name": "To Eat",
+          "url": "https://ghoststreet.cdn.prismic.io/ghoststreet/YXbOPZqzxb1N9_f4_GS-Menu-0726.pdf"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",

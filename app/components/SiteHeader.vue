@@ -58,9 +58,8 @@ const intro = computed(() => firstView.value && route.path === '/')
   }
 }
 
-/* Hamburger and the overlays' close buttons share one drawing. */
+/* Hamburger and the notice overlay's close button share one drawing. */
 .hamburger,
-.social-close,
 .special-close {
   position: absolute;
   top: 26px;

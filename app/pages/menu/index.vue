@@ -6,17 +6,27 @@ const d = computed(() => page.value.data)
 
 usePageSeo(() => ({ data: d.value, pageName: d.value.title, path: '/menu/', fallbackImage: d.value.cover_image }))
 
-/* The theme printed WordPress's 2560×1440 and 767×431 crops; imgix reproduces them. */
-const crop = (width: number, height: number) =>
-  prismic.isFilled.image(d.value.cover_image) ? prismic.asImageSrc(d.value.cover_image, { w: width, h: height, fit: 'crop' }) : null
-const cover = computed(() => ({ large: crop(2560, 1440), mobile: crop(767, 431) }))
+/*
+ * Full-screen background: 2560×1440 on desktop; on phones a crop shaped like the screen — tall
+ * (405×720) held upright, wide (767×431) sideways — each with a 2x where the upload allows.
+ */
+const cover = computed(() => ({
+  large: cropSet(d.value.cover_image, 2560, 1440),
+  portrait: cropSet(d.value.cover_image, 405, 720),
+  landscape: cropSet(d.value.cover_image, 767, 431),
+}))
 const coverStyle = computed(() => ({
-  '--cover-large': cover.value.large ? `url("${cover.value.large}")` : undefined,
-  '--cover-mobile': cover.value.mobile ? `url("${cover.value.mobile}")` : undefined,
+  '--cover-large': cover.value.large?.css,
+  '--cover-portrait': cover.value.portrait?.css,
+  '--cover-landscape': cover.value.landscape?.css,
 }))
 
 useHead({
-  link: () => [...preloadImage(cover.value.large, '(min-width: 768px)'), ...preloadImage(cover.value.mobile, '(max-width: 767px)')],
+  link: () => [
+    ...preloadImage(cover.value.large, '(min-width: 768px)'),
+    ...preloadImage(cover.value.portrait, '(max-width: 767px) and (orientation: portrait)'),
+    ...preloadImage(cover.value.landscape, '(max-width: 767px) and (orientation: landscape)'),
+  ],
 })
 </script>
 
@@ -53,7 +63,10 @@ useHead({
     background: var(--cover-large) no-repeat center top / cover;
 
     @include breakpoint(mobile) {
-      background-image: var(--cover-mobile);
+      background-image: var(--cover-portrait);
+    }
+    @include breakpoint(mobileLandscape) {
+      background-image: var(--cover-landscape);
     }
   }
 

@@ -7,6 +7,8 @@
       "name": "Ghost Street",
       "url": "https://ghoststreetakl.nz/",
       "description": "A reimagining of the heady hole-in-the-wall eateries along Beijing's famous food street.",
+      "image": "https://images.prismic.io/ghoststreet/OORmTlB4GopglBmU_homepage-hero-1-scaled.jpg?auto=format%2Ccompress&w=1200",
+      "logo": "https://ghoststreetakl.nz/images/logo.svg",
       "servesCuisine": "Chinese",
       "telephone": "+64 9 306 2233",
       "email": "eat@ghoststreetakl.nz",
@@ -16,8 +18,26 @@
         "addressLocality": "Britomart, Auckland",
         "addressCountry": "NZ"
       },
-      "hasMenu": "https://ghoststreetakl.nz/menu/",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -36.844881,
+        "longitude": 174.768563
+      },
+      "hasMap": "https://www.google.com/maps/dir/-36.8447337,174.7682652/Tuawhiti+Lane,+Auckland+CBD,+Auckland/@-36.8449189,174.7683641,19.89z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x6d0d47fc03936801:0x5c02bf9fe21b2ced!2m2!1d174.768563!2d-36.844881",
+      "hasMenu": {
+        "@id": "https://ghoststreetakl.nz/menu/#menu"
+      },
       "acceptsReservations": "https://ghoststreetakl.nz/bookings/",
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://ghoststreetakl.nz/bookings/"
+        },
+        "result": {
+          "@type": "FoodEstablishmentReservation"
+        }
+      },
       "sameAs": [
         "https://instagram.com/ghoststreetakl",
         "https://www.facebook.com/GhostStreetAKL/"

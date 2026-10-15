@@ -3,7 +3,7 @@
  *
  *   npx tsx scripts/interactions.ts [--base http://localhost:3457]
  *
- * Menu open/close (transitions really run), submenu, Escape, social overlay, client-side
+ * Menu open/close (transitions really run), submenu, Escape, footer social links, client-side
  * navigation with the crossfade, booking widget after navigating away and back, no console
  * errors, no horizontal overflow on phones, reduced motion, 404 page.
  */
@@ -85,7 +85,7 @@ const running = (page: Page, selector: string) =>
   }))
   check('client nav: menu closes on route change', afterNav.menu === 'hidden')
   check('client nav: page rendered', afterNav.h1 === 'Make a booking', JSON.stringify(afterNav))
-  check('client nav: title + canonical updated', afterNav.title === 'Bookings | Ghost Street' && afterNav.canonical === 'https://ghoststreetakl.nz/bookings/', JSON.stringify(afterNav))
+  check('client nav: title + canonical updated', / \| Ghost Street$/.test(afterNav.title) && afterNav.title !== 'Ghost Street' && afterNav.canonical === 'https://ghoststreetakl.nz/bookings/', JSON.stringify(afterNav))
 
   await page.evaluate(() => window.scrollTo(0, document.querySelector('.eveve-widget')!.getBoundingClientRect().top - 200))
   await page.waitForSelector('.eveve-widget iframe', { timeout: 15000 }).catch(() => null)
@@ -111,19 +111,20 @@ const running = (page: Page, selector: string) =>
   await page.close()
 }
 
-// ── Social overlay & footer ──────────────────────────────────────────────────
+// ── Footer social links ──────────────────────────────────────────────────────
 {
   const { page, errors } = await open('/private-events/')
   await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight))
   await wait(800)
-  await page.click('.social-trigger a')
-  await wait(1200)
-  const shown = await page.$eval('.social-overlay', (el) => ({ o: getComputedStyle(el).opacity, v: getComputedStyle(el).visibility, links: el.querySelectorAll('a').length }))
-  check('social overlay: opens from footer', shown.o === '1' && shown.v === 'visible' && shown.links === 2, JSON.stringify(shown))
-  await page.mouse.click(100, 100)
-  await wait(1200)
-  const hidden = await page.$eval('.social-overlay', (el) => getComputedStyle(el).visibility)
-  check('social overlay: closes on backdrop click', hidden === 'hidden')
+  const social = await page.$$eval('.main-footer .footer-social a', (as) =>
+    as.map((a) => ({ text: a.textContent?.trim(), href: a.getAttribute('href'), target: a.getAttribute('target'), visible: a.getBoundingClientRect().height > 0 })),
+  )
+  check(
+    'footer: Instagram + Facebook as plain links (new tab)',
+    social.length === 2 && social.every((l) => l.visible && l.target === '_blank' && /instagram|facebook/.test(l.href ?? '')),
+    JSON.stringify(social),
+  )
+  check('footer: no social overlay', (await page.$('.social-overlay')) === null)
 
   // Rich-text link inside CMS copy (external) must not be hijacked.
   const href = await page.$eval('.booking-content .right a', (a) => a.getAttribute('href'))

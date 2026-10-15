@@ -3,7 +3,9 @@ import * as prismic from '@prismicio/client'
 
 const { data: settings } = await useSettings()
 const s = computed(() => settings.value!.data)
-const socialOpen = useSocialOpen()
+/* Instagram/Facebook as plain links under a "Social" label (as on the Cafe Hanoi build). */
+const socialLinks = computed(() => s.value.social_links.filter((item) => prismic.isFilled.link(item.url)))
+const platformName = (platform: string | null) => (platform ? platform[0]!.toUpperCase() + platform.slice(1) : 'Link')
 const specialOpen = useSpecialOpen()
 const year = new Date().getFullYear()
 
@@ -39,10 +41,14 @@ function toTop(event: MouseEvent) {
             <li v-if="hasSpecial">
               <a href="#" class="special-hours-link" role="button" @click.prevent="specialOpen = true">{{ s.special_link_label }}</a>
             </li>
-            <li class="social-trigger">
-              <a href="#" role="button" @click.prevent="socialOpen = true">{{ s.social_link_label || 'Social' }}</a>
+            <li v-if="socialLinks.length" class="footer-social">
+              {{ s.social_link_label || 'Social' }}
+              <ul>
+                <li v-for="(item, i) in socialLinks" :key="i">
+                  <PrismicLink :field="item.url" target="_blank" rel="noopener">{{ platformName(item.platform) }}</PrismicLink>
+                </li>
+              </ul>
             </li>
-            <li aria-hidden="true">_</li>
           </ul>
         </nav>
       </div>
@@ -116,6 +122,15 @@ function toTop(event: MouseEvent) {
     a,
     a:hover {
       color: var(--red);
+    }
+
+    .footer-social {
+      color: var(--taupe);
+
+      ul {
+        font-size: inherit;
+        line-height: inherit;
+      }
     }
   }
 

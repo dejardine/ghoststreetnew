@@ -28,6 +28,10 @@ The live WordPress site is the visual specification. This is a re-implementation
   `app/error.vue` shows "Page not found…" only for 404s.
 - **Publishing**: Prismic webhook (documentsPublished, documentsUnpublished) → Netlify build hook
   "Prismic publish" → rebuild of `main`. One hook, one webhook (verified none pre-existed).
+- **Caching** (`netlify.toml`): HTML/payloads/sitemap revalidate on every request (Netlify's CDN
+  serves them and purges on deploy); `/_nuxt/*` and `/fonts/*` a year, immutable; `/images/*`,
+  favicon and touch icon a week then revalidate (unhashed names — rename to bust sooner);
+  `/wp-content/uploads/*` (legacy-path copies that never change) a year, immutable.
 - **Preview**: `/preview` resolves the previewed document, waits for the `io.prismic.preview` cookie
   (`app/utils/previewSession.ts`, unit-tested), then does a full `location.replace` so the module's
   draft hooks install. Preview URLs registered: staging `/preview` and `http://localhost:3000/preview`.
@@ -110,7 +114,9 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
 
 - **Prismic media library (14 assets)**: hero video (MP4, byte-for-byte), phone hero originals,
   Menu background original, teaser images, reviews illustration (SVG), left-column image, 4 menu PDFs,
-  footer map. WordPress crops (2560×1440, 767×431, 767×999) are reproduced with imgix `fit=crop`.
+  footer map. Background crops come from imgix `fit=crop`, each with a 2x for retina screens
+  (`cropSet()` in `app/utils/retina.ts`, as on the Cafe Hanoi build; capped at the upload's size):
+  Home phone hero 767×999 / 767×431; Food Menu 2560×1440 desktop, 405×720 phone upright, 767×431 sideways.
   Alt text: WordPress had none; all images here are decorative or have adjacent text.
 - **Static copies** at original `/wp-content/uploads/...` paths (PDFs, map, images the pages
   referenced). `npm run verify:assets` checks all hashes (last run: all match).
@@ -126,7 +132,8 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
 - **Mailchimp** (list shared with Cafe Hanoi): same list and behaviour (Enter submits, inline
   message) via JSONP, no jQuery; without JS it posts to Mailchimp in a new tab as before.
   Client confirmed (Oct 2026) that the signup stays, posting to the Cafe Hanoi account.
-- **Social overlay**: footer "Social" opens the full-screen icons overlay (Instagram, Facebook).
+- **Footer social**: a "Social" label with plain Instagram / Facebook links (new tab), from
+  Settings → *Social links* — the overlay is gone, as on the Cafe Hanoi build.
 - **Seasonal notice overlay**: kept but empty (the live option contained just "nothing" and had no
   trigger link). Fill both Settings → *Special notice* fields to show a footer link + overlay.
 - **GA4** `G-9FWGK4DYZE` (found on the live site). Loads only on `ghoststreetakl.nz`, so staging
@@ -148,11 +155,13 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
 | Empty anchors | Empty teaser/hero `<a>` elements rendered | Not rendered unless they have text/link | No visual change |
 | Newsletter label | `display: none` | Visually hidden (screen-reader text) | Accessibility |
 | Menu toggles | `<a href="#">` | `<button>` with `aria-expanded` | Accessibility; same look |
+| Footer social | "Social" opens a full-screen icon overlay | "Social" label + Instagram/Facebook links | Matches the Cafe Hanoi build |
 | Favicon | `favicon.ico` link 404s (tabs show no icon) | 鬼 from the logo (tab), full stamp (home screen) | Made from the theme logo, Oct 2026 |
 
 Matched on purpose (cascade accidents that render on production): sub-menu items permanently offset
 10% (left by velocity's close animation); `.wysiwyg` cancelling `.columns` bottom padding on content
-pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styling on Bookings.
+pages; Word-paste Georgia/gold styling on Bookings. (The footer's stray "_" was dropped with the
+social overlay.)
 
 ## 7. SEO
 
@@ -179,7 +188,7 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
   geometry and computed type/colour matches; remaining differences are the intentional ones above.
 - `npm run test:interactions -- --base https://ghoststreet.netlify.app`: menu open/close transitions
   (verified with `getAnimations()`), submenu, Escape, route-change close, booking widget lazy-load and
-  re-init after navigating away and back, social overlay, no console errors, no horizontal overflow at
+  re-init after navigating away and back, footer social links, no console errors, no horizontal overflow at
   375px, reduced motion, 404.
 - `npm test` (preview cookie wait), `npm run typecheck`, `npm run audit:models`, `npm run verify:assets`.
 
@@ -187,7 +196,8 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
 
 1. Confirm opening hours (three versions on the current site) — then add them to the Home JSON-LD.
 2. Review the JSON-LD now live on all five pages (it was published without a client review).
-3. Review and publish the release "SEO: meta titles & descriptions" (titles + descriptions, all pages).
+3. Review and publish the release "Structured data (Oct 2026)": venue image, logo, map pin, booking
+   action and a Menu with its four sections (Home + Food Menu).
 4. Supply a dedicated social share image if wanted (the Home hero is used meanwhile). A favicon
    made from the logo is in place; swap `public/favicon.ico` etc. if the client has an official one.
 5. A real end-to-end preview from the Prismic editor (Preview button on a draft) should be clicked
