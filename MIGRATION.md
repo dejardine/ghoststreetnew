@@ -148,7 +148,7 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
 | Empty anchors | Empty teaser/hero `<a>` elements rendered | Not rendered unless they have text/link | No visual change |
 | Newsletter label | `display: none` | Visually hidden (screen-reader text) | Accessibility |
 | Menu toggles | `<a href="#">` | `<button>` with `aria-expanded` | Accessibility; same look |
-| Favicon | `favicon.ico` link 404s | No favicon link | Not invented — see follow-ups |
+| Favicon | `favicon.ico` link 404s (tabs show no icon) | 鬼 from the logo (tab), full stamp (home screen) | Made from the theme logo, Oct 2026 |
 
 Matched on purpose (cascade accidents that render on production): sub-menu items permanently offset
 10% (left by velocity's close animation); `.wysiwyg` cancelling `.columns` bottom padding on content
@@ -185,7 +185,8 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
 1. Confirm opening hours (three versions on the current site) — then add them to the Home JSON-LD.
 2. Review the JSON-LD now live on all five pages (it was published without a client review).
 3. Review and publish the release "SEO: meta titles & descriptions" (titles + descriptions, all pages).
-4. Supply a favicon, and a dedicated social share image if wanted (the Home hero is used meanwhile).
+4. Supply a dedicated social share image if wanted (the Home hero is used meanwhile). A favicon
+   made from the logo is in place; swap `public/favicon.ico` etc. if the client has an official one.
 5. A real end-to-end preview from the Prismic editor (Preview button on a draft) should be clicked
    through once; the flow is tested on staging with a simulated session.
 6. Optional: an SEO landing-page type (kicker, H1, facts, slideshow, FAQs, enquiry CTA) is available

@@ -49,6 +49,10 @@ export default defineNuxtConfig({
         { rel: 'preload', href: '/fonts/financier-text-web-regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
         { rel: 'preload', href: '/fonts/financier-display-web-regular.woff2', as: 'font', type: 'font/woff2', crossorigin: '' },
         { rel: 'preconnect', href: 'https://images.prismic.io' },
+        /* Tab icon: 鬼 from the logo; home-screen icons: the full stamp. Made from public/images/logo.svg. */
+        { rel: 'icon', href: '/favicon.ico', sizes: '16x16 32x32 48x48' },
+        { rel: 'icon', type: 'image/png', sizes: '192x192', href: '/images/icon-192.png' },
+        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
       ],
       script: [
         /* Marks JS-capable visits before first paint so reveal styles never flash on no-JS visits. */
