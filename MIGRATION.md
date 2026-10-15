@@ -158,7 +158,8 @@ pages; the black "_" after "Social" in the footer; Word-paste Georgia/gold styli
 
 - `usePageSeo()` on every page: title, description, canonical (`https://ghoststreetakl.nz/<path>/`),
   `og:url` = canonical, OG/Twitter image (1200×630 crop) and alt.
-  Fallbacks: share image = the page's *Social share image* → the homepage image, read live from
+  Fallbacks: share image = the page's *Social share image* → its own image (Food Menu: its
+  background) → the homepage image, read live from
   Prismic (Home's *Social share image*, else its hero) → a copy of the hero in `site.share`
   (`site.config.ts`) if Prismic is unreachable; description = *Meta description* →
   `site.share.description`. The same defaults are in `nuxt.config.ts` head for the static

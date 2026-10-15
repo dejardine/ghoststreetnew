@@ -36,23 +36,27 @@ export function useShareImage() {
 /**
  * Owns a page's <title>, description, canonical and social tags.
  * Title: "<Meta title or page name> | Ghost Street"; the homepage is just "Ghost Street".
- * Share image: the page's Social share image → the homepage image (useShareImage).
+ * Share image: the page's Social share image → its own image (`fallbackImage`, e.g. the Food Menu
+ * background) → the homepage image (useShareImage).
  * Description: Meta description → site default.
  */
-export function usePageSeo(input: MaybeRefOrGetter<{ data: SeoFields; pageName?: string | null; path: string }>) {
+export function usePageSeo(
+  input: MaybeRefOrGetter<{ data: SeoFields; pageName?: string | null; path: string; fallbackImage?: prismic.ImageField }>,
+) {
   const { siteName, siteUrl } = useRuntimeConfig().public
   const fallbackImage = useShareImage()
   const seo = computed(() => {
-    const { data, pageName, path } = toValue(input)
+    const { data, pageName, path, fallbackImage: pageImage } = toValue(input)
     const name = data.meta_title?.trim() || pageName?.trim() || ''
     const title = !name ? siteName : name.includes(siteName) ? name : `${name} | ${siteName}`
-    const own = prismic.isFilled.image(data.meta_image) ? data.meta_image : null
+    const own = [data.meta_image, pageImage].find((field) => prismic.isFilled.image(field)) ?? null
     return {
       title,
       description: data.meta_description?.trim() || site.share.description,
       url: canonicalUrl(siteUrl, path),
       image: own ? prismic.asImageSrc(own, { width: 1200, height: 630, fit: 'crop' })! : fallbackImage.value.url,
-      imageAlt: own ? own.alt || undefined : fallbackImage.value.alt,
+      /* '' (not undefined) so an image without alt text never inherits the default image's alt. */
+      imageAlt: own ? own.alt || '' : fallbackImage.value.alt,
     }
   })
 
