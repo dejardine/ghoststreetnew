@@ -21,3 +21,7 @@
 /wp-sitemap-*             /sitemap.xml              301
 /wp-admin/*               /                         301
 /wp-login.php             /                         301
+
+# No pick-ups (client, Oct 2026). Forced (!) so it wins over the page while it is still published in Prismic.
+/pickup-delivery/         /bookings/                301!
+/pickup-delivery          /bookings/                301!

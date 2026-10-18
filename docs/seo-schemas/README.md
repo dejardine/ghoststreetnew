@@ -31,12 +31,10 @@ Added Oct 2026 to match the Cafe Hanoi build (staged in the Prismic release
 
 ## Deliberately left out — please confirm with the client
 
-- **Opening hours.** Three sources disagree, so none is encoded:
-  - footer: Mon–Wed 5.30pm till close · Thu–Sat 5pm till close · Sun 5.30pm till close
-  - Bookings page: Mon–Wed 5:30–8:30pm · Thu 5:00–8:30pm · Fri–Sat 5:00–9pm · Sun 5:30–8:00pm
-    (these may be booking windows rather than opening hours)
-  - Pickup page: Sun–Thu 5–8.30pm · Fri–Sat 5–7pm (pick-up only)
-  Once confirmed, add `openingHoursSpecification` to the `Restaurant` node.
+- **Opening hours.** Confirmed by the client (Oct 2026): Mon–Wed 5.30pm till close · Thu–Sat 5pm till
+  close · Sun 5.30pm till close (the kitchen opens and bookings start at those times). Close times must
+  stay ambiguous, so `openingHoursSpecification` (which needs a closing time) is still left out; the
+  client is claiming the Google Business Profile, which will carry the hours.
 - **Postcode, price range, ratings, parent company.** Not stated in the site's content; never invented
   (Cafe Hanoi lists Comensa as owner from its footer — Ghost Street's content doesn't say).
 - **Private events capacity** (44 seated / 50 standing, The Parlour) is about a separate venue
@@ -44,8 +42,7 @@ Added Oct 2026 to match the Cafe Hanoi build (staged in the Prismic release
 
 ## Content contradictions noticed during migration
 
-- Pickup page says "daytime and early evening Click and Collect", but the listed times start at 5pm.
-- The Pickup page's URL is `/pickup-delivery/` while it says "We do not do delivery." The URL is
-  kept for continuity.
+- Ghost Street does not do pick-ups (client, Oct 2026). `/pickup-delivery/` now 301s to `/bookings/`;
+  the Prismic page should be unpublished.
 
 FAQ rich results were retired by Google in May 2026; there is no FAQ content on this site anyway.

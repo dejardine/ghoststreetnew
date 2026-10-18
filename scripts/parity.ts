@@ -18,7 +18,7 @@ const arg = (name: string, fallback: string) => {
 }
 const NEW = arg('new', 'http://localhost:3457')
 const PROD = arg('prod', 'https://ghoststreetakl.nz')
-const PAGES = arg('pages', '/,/bookings/,/private-events/,/pickup-delivery/,/menu/').split(',')
+const PAGES = arg('pages', '/,/bookings/,/private-events/,/menu/').split(',')
 const VIEWPORTS: Record<string, [number, number]> = {
   1440: [1440, 900], 1280: [1280, 800], 1024: [1024, 768], 768: [768, 1024], 375: [375, 812],
 }

@@ -194,7 +194,8 @@ social overlay.)
 
 ## 9. Follow-ups for the client
 
-1. Confirm opening hours (three versions on the current site) — then add them to the Home JSON-LD.
+1. ~~Confirm opening hours~~ Confirmed Oct 2026 (footer wording; close times stay ambiguous, so not in
+   the JSON-LD). No pick-ups: `/pickup-delivery/` redirects to `/bookings/`; unpublish that Prismic page.
 2. Review the JSON-LD now live on all five pages (it was published without a client review).
 3. Review and publish the release "Structured data (Oct 2026)": venue image, logo, map pin, booking
    action and a Menu with its four sections (Home + Food Menu).

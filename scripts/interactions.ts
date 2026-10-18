@@ -134,7 +134,7 @@ const running = (page: Page, selector: string) =>
 }
 
 // ── Phones: overflow + reveals skipped on touch ──────────────────────────────
-for (const path of ['/', '/bookings/', '/menu/', '/pickup-delivery/']) {
+for (const path of ['/', '/bookings/', '/menu/']) {
   const { page } = await open(path, 375, 812)
   await page.click('.hamburger')
   await wait(1200)
