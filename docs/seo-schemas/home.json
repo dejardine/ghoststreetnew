@@ -16,6 +16,7 @@
         "@type": "PostalAddress",
         "streetAddress": "27 Galway Street",
         "addressLocality": "Britomart, Auckland",
+        "postalCode": "1010",
         "addressCountry": "NZ"
       },
       "geo": {

@@ -199,8 +199,9 @@ social overlay.)
 2. Review the JSON-LD now live on all five pages (it was published without a client review).
 3. Review and publish the release "Structured data (Oct 2026)": venue image, logo, map pin, booking
    action and a Menu with its four sections (Home + Food Menu).
-4. Supply a dedicated social share image if wanted (the Home hero is used meanwhile). A favicon
-   made from the logo is in place; swap `public/favicon.ico` etc. if the client has an official one.
+4. ~~Share image and favicon~~ Client (Oct 2026): keep the Home hero as the share image and the
+   logo favicon. Newsletter sign-ups stay on the Cafe Hanoi Mailchimp list (confirmed). Postcode
+   1010 added to the Home JSON-LD.
 5. A real end-to-end preview from the Prismic editor (Preview button on a draft) should be clicked
    through once; the flow is tested on staging with a simulated session.
 6. Optional: an SEO landing-page type (kicker, H1, facts, slideshow, FAQs, enquiry CTA) is available
