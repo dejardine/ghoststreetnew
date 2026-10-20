@@ -140,7 +140,10 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
     text-align: left;
   }
 
-  /* Underline sweep. As in the theme, hovering a parent item sweeps its sub-links too. */
+  /*
+   * Underline sweep. A parent stays swept while its sub-menu is hovered; each sub-link sweeps
+   * only on its own hover (the theme's later `.sub-menu li a:before` rule reset them).
+   */
   .top-level :is(a, .sub-toggle)::before {
     content: '';
     position: absolute;
@@ -151,7 +154,8 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
     background: var(--white);
     transition: width 250ms var(--ease);
   }
-  .top-level li:hover :is(a, .sub-toggle)::before {
+  .top-level > li:hover > :is(a, .sub-toggle)::before,
+  .sub-menu li:hover > a::before {
     width: 100%;
   }
 
