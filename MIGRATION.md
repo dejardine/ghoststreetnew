@@ -22,7 +22,7 @@ The live WordPress site is the visual specification. This is a re-implementation
   styles. Breakpoint names map to the theme's queries (`laptop` ≤1440, `tablet` ≤1024,
   `tabletPortrait`, `mobile` ≤767, `mobileLandscape`). The root size stays at the theme's 75%
   (1rem = 12px) so values port 1:1.
-- **One place for site constants**: `site.config.ts` (URL, name, Prismic repo, GA4, Eveve, Mailchimp).
+- **One place for site constants**: `site.config.ts` (URL, name, Prismic repo, GA4, Eveve).
 - **Content loading policy** (`app/composables/usePrismicContent.ts`): missing document → 404;
   any other failure (API down, network) → 502 "Unable to load this page". Singletons never 404.
   `app/error.vue` shows "Page not found…" only for 404s.
@@ -129,9 +129,8 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
 - **Eveve/ResHub booking widget**: same script and parameters (`ghoststreet`, colours, Playfair
   Display). Lazy-loaded near the viewport, space reserved, `<noscript>` link to
   `https://book.reshub.co.nz/?est=ghoststreet`; re-initialises after client-side navigation.
-- **Mailchimp** (list shared with Cafe Hanoi): same list and behaviour (Enter submits, inline
-  message) via JSONP, no jQuery; without JS it posts to Mailchimp in a new tab as before.
-  Client confirmed (Oct 2026) that the signup stays, posting to the Cafe Hanoi account.
+- **Mailchimp** footer signup (list shared with Cafe Hanoi): **removed** (Oct 2026), the client
+  no longer uses the list. Settings → *Newsletter heading* is now unused.
 - **Footer social**: a "Social" label with plain Instagram / Facebook links (new tab), from
   Settings → *Social links* — the overlay is gone, as on the Cafe Hanoi build.
 - **Seasonal notice overlay**: kept but empty (the live option contained just "nothing" and had no
@@ -201,7 +200,7 @@ social overlay.)
 3. Review and publish the release "Structured data (Oct 2026)": venue image, logo, map pin, booking
    action and a Menu with its four sections (Home + Food Menu).
 4. ~~Share image and favicon~~ Client (Oct 2026): keep the Home hero as the share image and the
-   logo favicon. Newsletter sign-ups stay on the Cafe Hanoi Mailchimp list (confirmed). Postcode
+   logo favicon. The Mailchimp signup was later removed (list no longer used). Postcode
    1010 added to the Home JSON-LD.
 5. A real end-to-end preview from the Prismic editor (Preview button on a draft) should be clicked
    through once; the flow is tested on staging with a simulated session.

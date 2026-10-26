@@ -35,7 +35,6 @@ function toTop(event: MouseEvent) {
       <a ref="arrow" href="#start" class="arrow-up" :class="{ 'is-visible': arrowVisible }" aria-label="Back to top" @click="toTop" />
 
       <div v-reveal class="col">
-        <NewsletterForm :heading="s.newsletter_heading" />
         <nav v-reveal aria-label="Footer">
           <ul>
             <li v-if="hasSpecial">

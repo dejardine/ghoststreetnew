@@ -40,12 +40,6 @@ export const site = {
     imageAlt: 'A stick of incense smoking against a black background',
     description: "A reimagining of the heady hole-in-the-wall eateries along Beijing's famous food street. Britomart, Auckland.",
   },
-  /** Mailchimp list shared with Cafe Hanoi (same form as the live footer). */
-  mailchimp: {
-    action: 'https://cafehanoi.us2.list-manage.com/subscribe/post',
-    u: 'd6d53c3845507419fbe48c5a8',
-    id: 'a6c78e2427',
-  },
 } as const
 
 export type SiteConfig = typeof site

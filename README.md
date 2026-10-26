@@ -29,7 +29,7 @@ npm run verify:assets       # SHA-256 of migrated assets vs WordPress originals
 app/
   app.vue                 shell: preloader, header, menu, overlays, footer, GA4, rich-text link upgrade
   pages/                  index (home), [uid] (content pages), menu/, preview
-  components/             SiteHeader, SiteMenu, SiteFooter, NewsletterForm, BookingWidget, ReviewSlider…
+  components/             SiteHeader, SiteMenu, SiteFooter, BookingWidget, ReviewSlider…
   composables/            usePrismicContent (404/502 policy), useSeo (usePageSeo, useJsonLd), layout data, UI state
   slices/                 NavigationLink, NavigationDropdown (navigation document)
   plugins/reveal.ts       v-reveal scroll fade (fine-pointer devices only)
@@ -38,7 +38,7 @@ customtypes/              Prismic models (manage with `npx prismic type|field|sl
 server/routes/            sitemap.xml, robots.txt
 public/                   fonts, theme images, legacy /wp-content/uploads copies, _redirects
 scripts/                  WordPress migration + verification tooling
-site.config.ts            site URL, name, GA4, Eveve, Mailchimp — every site-specific constant
+site.config.ts            site URL, name, GA4, Eveve — every site-specific constant
 ```
 
 ## Content editing
