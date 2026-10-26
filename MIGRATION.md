@@ -136,7 +136,8 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
   Settings → *Social links* — the overlay is gone, as on the Cafe Hanoi build.
 - **Seasonal notice overlay**: kept but empty (the live option contained just "nothing" and had no
   trigger link). Fill both Settings → *Special notice* fields to show a footer link + overlay.
-- **GA4** `G-9FWGK4DYZE` (found on the live site). Loads only on `ghoststreetakl.nz`, so staging
+- **GA4** `G-MHHLP9KN7J` (supplied by the client, Oct 2026; the live site's snippet used
+  `G-9FWGK4DYZE`). Loads only on `ghoststreetakl.nz`, so staging
   and previews don't pollute analytics. Enhanced measurement covers SPA page views.
 - **Click & Collect** (mobi2go), **The Parlour**, **Cafe Hanoi**, **vouchers** (appropo.io): plain
   links, unchanged.

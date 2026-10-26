@@ -10,8 +10,8 @@ export const site = {
   prismicRepo: 'ghoststreet',
   /** GitHub repository (owner/name). */
   githubRepo: 'dejardine/ghoststreetnew',
-  /** GA4 measurement ID, taken from the live site's gtag snippet. */
-  ga4Id: 'G-9FWGK4DYZE',
+  /** GA4 measurement ID, supplied by the client (Oct 2026). The live site used G-9FWGK4DYZE. */
+  ga4Id: 'G-MHHLP9KN7J',
   /** Eveve / ResHub booking widget, copied exactly from the live embed. */
   booking: {
     script: 'https://book.reshub.co.nz/embed-iframe.js',
