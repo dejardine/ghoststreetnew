@@ -35,8 +35,12 @@ Added Oct 2026 to match the Cafe Hanoi build (staged in the Prismic release
   close · Sun 5.30pm till close (the kitchen opens and bookings start at those times). Close times must
   stay ambiguous, so `openingHoursSpecification` (which needs a closing time) is still left out; the
   client is claiming the Google Business Profile, which will carry the hours.
-- **Price range, ratings, parent company.** Not stated in the site's content; never invented
-  (Cafe Hanoi lists Comensa as owner from its footer — Ghost Street's content doesn't say).
+- **Ratings.** Not stated in the site's content; never invented.
+
+Confirmed by the client (Oct 2026) and staged in the Prismic release
+**"Comensa + price range schema (Oct 2026)"**, unpublished until reviewed:
+- `parentOrganization`: Comensa (as on Cafe Hanoi).
+- `priceRange`: `$40–100`, matching the Google listing.
 - **Private events capacity** (44 seated / 50 standing, The Parlour) is about a separate venue
   (theparlour.nz); not encoded here.
 

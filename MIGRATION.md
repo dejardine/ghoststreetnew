@@ -206,7 +206,13 @@ social overlay.)
    through once; the flow is tested on staging with a simulated session.
 6. Optional: an SEO landing-page type (kicker, H1, facts, slideshow, FAQs, enquiry CTA) is available
    from previous projects if the client wants campaign pages.
-7. The old Prismic slice-simulator URL (`localhost:3000/slice-simulator`) is still registered by the
+7. Client decisions (Oct 2026), staged in Prismic, unpublished until reviewed:
+   - Nav dropdown renamed **Sister Eatery** (Cafe Hanoi only; The Parlour not added), in the release
+     "Secure sister-venue links (Oct 2026)". Cafe Hanoi's site gets the same rename, pointing here.
+   - Home JSON-LD: `parentOrganization` Comensa and `priceRange` `$40–100`, in the release
+     "Comensa + price range schema (Oct 2026)".
+   - Private Events enquiries stay with The Parlour.
+8. The old Prismic slice-simulator URL (`localhost:3000/slice-simulator`) is still registered by the
    CLI default; it is unused and can be ignored or removed in Prismic settings.
 
 ## 10. Cutover checklist

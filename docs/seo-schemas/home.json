@@ -10,6 +10,7 @@
       "image": "https://images.prismic.io/ghoststreet/OORmTlB4GopglBmU_homepage-hero-1-scaled.jpg?auto=format%2Ccompress&w=1200",
       "logo": "https://ghoststreetakl.nz/images/logo.svg",
       "servesCuisine": "Chinese",
+      "priceRange": "$40–100",
       "telephone": "+64 9 306 2233",
       "email": "eat@ghoststreetakl.nz",
       "address": {
@@ -42,7 +43,11 @@
       "sameAs": [
         "https://instagram.com/ghoststreetakl",
         "https://www.facebook.com/GhostStreetAKL/"
-      ]
+      ],
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Comensa"
+      }
     },
     {
       "@type": "WebSite",
