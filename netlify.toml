@@ -7,16 +7,6 @@
   # npm 10.8 crashes on this lockfile (arborist edgesOut); build with npm 11.
   NPM_VERSION = "11"
 
-# ─────────────────────────────────────────────────────────────────────────────
-# STAGING ONLY — REMOVE AT CUTOVER.
-# Keeps the staging site out of search engines. Delete this whole block when the
-# production domain (ghoststreetakl.nz) is pointed at Netlify.
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
-# ─────────────────────────────────────────────────────────────────────────────
-
 [[headers]]
   for = "/*"
   [headers.values]
