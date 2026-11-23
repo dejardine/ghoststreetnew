@@ -1,10 +1,12 @@
 # Ghost Street — WordPress → Nuxt 4 + Prismic + Netlify
 
-Production (WordPress, still live): https://ghoststreetakl.nz/
-Staging (this build): https://ghoststreet.netlify.app/ (Netlify site `ghoststreet`, deploys from `main`)
+Live (this build, since 24 November 2026): https://ghoststreetakl.nz/ (Netlify site `ghoststreet`,
+deploys from `main`). DNS at iwantmyname: apex `A` → `75.2.60.5` (Netlify load balancer), `www`
+`CNAME` → apex (301s to the apex). Let's Encrypt certificate for both, renewed by Netlify.
+Netlify default domain: https://ghoststreet.netlify.app/ (same build; no longer noindexed).
 Prismic repository: `ghoststreet` · GitHub: `dejardine/ghoststreetnew`
 
-The live WordPress site is the visual specification. This is a re-implementation, not a redesign.
+The old WordPress site was the visual specification. This is a re-implementation, not a redesign.
 
 > **Do not rerun the full WordPress migration for routine edits.** Editors work in Prismic.
 > `scripts/migrate.ts` refuses to overwrite any document an editor has republished since the
@@ -34,7 +36,8 @@ The live WordPress site is the visual specification. This is a re-implementation
   `/wp-content/uploads/*` (legacy-path copies that never change) a year, immutable.
 - **Preview**: `/preview` resolves the previewed document, waits for the `io.prismic.preview` cookie
   (`app/utils/previewSession.ts`, unit-tested), then does a full `location.replace` so the module's
-  draft hooks install. Preview URLs registered: staging `/preview` and `http://localhost:3000/preview`.
+  draft hooks install. Preview URLs registered at go-live: staging `/preview` and `http://localhost:3000/preview`;
+  the production URL still has to be added (see §10).
 
 ## 2. Content model
 
@@ -125,7 +128,7 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
   WOFF2 converted from the WOFF v1.2 that production actually served (the theme's `.woff2` files
   were a different build that never rendered), WOFF kept as fallback, `font-display: swap`,
   preloaded. No Typekit or Google Fonts (Elementor's Roboto was loaded but never applied).
-  Check the Klim licence covers the production domain at cutover.
+  Confirmed rendering on `ghoststreetakl.nz` at go-live.
 - **Eveve/ResHub booking widget**: same script and parameters (`ghoststreet`, colours, Playfair
   Display). Lazy-loaded near the viewport, space reserved, `<noscript>` link to
   `https://book.reshub.co.nz/?est=ghoststreet`; re-initialises after client-side navigation.
@@ -136,7 +139,7 @@ Rules live in `public/_redirects` (not `netlify.toml`). Netlify pretty URLs 301 
 - **Seasonal notice overlay**: kept but empty (the live option contained just "nothing" and had no
   trigger link). Fill both Settings → *Special notice* fields to show a footer link + overlay.
 - **GA4** `G-MHHLP9KN7J` (supplied by the client, Oct 2026; the live site's snippet used
-  `G-9FWGK4DYZE`). Loads only on `ghoststreetakl.nz`, so staging
+  `G-9FWGK4DYZE`). Loads only on `ghoststreetakl.nz`, so `ghoststreet.netlify.app`
   and previews don't pollute analytics. Enhanced measurement covers SPA page views.
 - **Click & Collect** (mobi2go), **The Parlour**, **Cafe Hanoi**, **vouchers** (appropo.io): plain
   links, unchanged.
@@ -179,8 +182,8 @@ social overlay.)
 - `/sitemap.xml` (from Prismic, absolute, trailing slashes), `/robots.txt` (points at it).
 - SEO fields after migration: `meta_title` = WordPress page titles on the three pages; everything else
   empty (production had no descriptions). No stray values.
-- Meta titles and descriptions for all five pages are staged (unpublished) in the Prismic release
-  **"SEO: meta titles & descriptions"** — review and publish it there.
+- Meta titles and descriptions for all five pages are published (the release
+  **"SEO: meta titles & descriptions"**).
 
 ## 8. Verification (latest run)
 
@@ -197,8 +200,8 @@ social overlay.)
 1. ~~Confirm opening hours~~ Confirmed Oct 2026 (footer wording; close times stay ambiguous, so not in
    the JSON-LD). No pick-ups: `/pickup-delivery/` redirects to `/bookings/`; unpublish that Prismic page.
 2. Review the JSON-LD now live on all five pages (it was published without a client review).
-3. Review and publish the release "Structured data (Oct 2026)": venue image, logo, map pin, booking
-   action and a Menu with its four sections (Home + Food Menu).
+3. ~~Publish the release "Structured data (Oct 2026)"~~ Published: venue image, logo, map pin,
+   booking action and a Menu with its four sections (Home + Food Menu) are live.
 4. ~~Share image and favicon~~ Client (Oct 2026): keep the Home hero as the share image and the
    logo favicon. The Mailchimp signup was later removed (list no longer used). Postcode
    1010 added to the Home JSON-LD.
@@ -206,25 +209,26 @@ social overlay.)
    through once; the flow is tested on staging with a simulated session.
 6. Optional: an SEO landing-page type (kicker, H1, facts, slideshow, FAQs, enquiry CTA) is available
    from previous projects if the client wants campaign pages.
-7. Client decisions (Oct 2026), staged in Prismic, unpublished until reviewed:
-   - Nav dropdown renamed **Sister Eatery** (Cafe Hanoi only; The Parlour not added), in the release
-     "Secure sister-venue links (Oct 2026)". Cafe Hanoi's site gets the same rename, pointing here.
-   - Home JSON-LD: `parentOrganization` Comensa and `priceRange` `$40–100`, in the release
-     "Comensa + price range schema (Oct 2026)".
+7. Client decisions (Oct 2026), all published and live:
+   - Nav dropdown renamed **Sister Eatery** (Cafe Hanoi only; The Parlour not added). Cafe Hanoi's
+     site has the same rename, pointing here. (The release "Secure sister-venue links (Oct 2026)"
+     is now empty and can be deleted.)
+   - Home JSON-LD: `parentOrganization` Comensa and `priceRange` `$40–100`.
    - Private Events enquiries stay with The Parlour.
 8. The old Prismic slice-simulator URL (`localhost:3000/slice-simulator`) is still registered by the
    CLI default; it is unused and can be ignored or removed in Prismic settings.
 
-## 10. Cutover checklist
+## 10. Cutover (24 November 2026)
 
-1. Freeze content in WordPress.
-2. Remove the **STAGING ONLY — REMOVE AT CUTOVER** `X-Robots-Tag` block from `netlify.toml`; push.
-3. Netlify → `ghoststreet` → Domain management: add `ghoststreetakl.nz` (+ `www`), then update DNS.
-4. Verify on the production domain: every page 200, PDFs, booking widget, fonts (Klim licence
-   domain), `/sitemap.xml`, `/robots.txt`, redirects (`/home/`, `/vouchers/`, `/menu/to-eat/`,
-   `/wp-sitemap.xml`), GA4 receiving hits.
-5. Submit `https://ghoststreetakl.nz/sitemap.xml` in Google Search Console.
-6. Keep WordPress running (unchanged) until DNS has fully propagated.
+| # | Step | Status |
+| --- | --- | --- |
+| 1 | Freeze content in WordPress | Not recorded: confirm with the client nothing changed in WordPress after migration |
+| 2 | Remove the staging `X-Robots-Tag` block from `netlify.toml`; push | Done (`db05116`); no `X-Robots-Tag` on the live site |
+| 3 | Add `ghoststreetakl.nz` (+ `www`) in Netlify, update DNS | Done (see top of this file); resolves to Netlify on all major public resolvers |
+| 4 | Verify on the production domain | Done: all 4 sitemap pages 200 with correct canonical, one H1 and valid JSON-LD; menu PDFs; redirects (`/home/`, `/vouchers/`, `/menu/to-eat/`, `/wp-sitemap.xml`, `/pickup-delivery/`, http → https, www → apex); 404; `/robots.txt` (disallows `/preview/`, points at the sitemap). Klim fonts confirmed by eye. **Still to check**: booking widget test search, GA4 receiving hits |
+| 5 | Prismic previews on the production domain | **To do**: `npx prismic login`, then `npx prismic preview add https://ghoststreetakl.nz/preview/` and remove the staging and localhost previews |
+| 6 | Submit `https://ghoststreetakl.nz/sitemap.xml` in Google Search Console | **To do** |
+| 7 | Keep WordPress running until DNS has fully propagated (48h+, so from 26 Nov), then archive it with a backup | **To do** |
 
 ## Environment variables (names only)
 
