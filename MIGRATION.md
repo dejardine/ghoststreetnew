@@ -36,8 +36,9 @@ The old WordPress site was the visual specification. This is a re-implementation
   `/wp-content/uploads/*` (legacy-path copies that never change) a year, immutable.
 - **Preview**: `/preview` resolves the previewed document, waits for the `io.prismic.preview` cookie
   (`app/utils/previewSession.ts`, unit-tested), then does a full `location.replace` so the module's
-  draft hooks install. Preview URLs registered at go-live: staging `/preview` and `http://localhost:3000/preview`;
-  the production URL still has to be added (see §10).
+  draft hooks install. Preview URL registered: `https://ghoststreetakl.nz/preview/` only (staging and localhost
+  removed at go-live; re-add localhost with `npx prismic preview add http://localhost:3000/preview
+  --repo ghoststreet` when developing).
 
 ## 2. Content model
 
@@ -215,8 +216,10 @@ social overlay.)
      is now empty and can be deleted.)
    - Home JSON-LD: `parentOrganization` Comensa and `priceRange` `$40–100`.
    - Private Events enquiries stay with The Parlour.
-8. The old Prismic slice-simulator URL (`localhost:3000/slice-simulator`) is still registered by the
-   CLI default; it is unused and can be ignored or removed in Prismic settings.
+8. The Prismic slice-simulator URL is still the CLI default (`localhost:3000/slice-simulator`). This
+   build has no slice simulator page, so it is unused; leave it.
+9. The project's own Prismic CLI (`prismic` 1.22 in `node_modules`) doesn't see a login made with
+   newer versions. Run preview commands with a current CLI and `--repo ghoststreet`.
 
 ## 10. Cutover (24 November 2026)
 
@@ -226,7 +229,7 @@ social overlay.)
 | 2 | Remove the staging `X-Robots-Tag` block from `netlify.toml`; push | Done (`db05116`); no `X-Robots-Tag` on the live site |
 | 3 | Add `ghoststreetakl.nz` (+ `www`) in Netlify, update DNS | Done (see top of this file); resolves to Netlify on all major public resolvers |
 | 4 | Verify on the production domain | Done: all 4 sitemap pages 200 with correct canonical, one H1 and valid JSON-LD; menu PDFs; redirects (`/home/`, `/vouchers/`, `/menu/to-eat/`, `/wp-sitemap.xml`, `/pickup-delivery/`, http → https, www → apex); 404; `/robots.txt` (disallows `/preview/`, points at the sitemap). Klim fonts confirmed by eye. **Still to check**: booking widget test search, GA4 receiving hits |
-| 5 | Prismic previews on the production domain | **To do**: `npx prismic login`, then `npx prismic preview add https://ghoststreetakl.nz/preview/` and remove the staging and localhost previews |
+| 5 | Prismic previews on the production domain | Done: `https://ghoststreetakl.nz/preview/` is the only preview; staging and localhost removed |
 | 6 | Submit `https://ghoststreetakl.nz/sitemap.xml` in Google Search Console | **To do** |
 | 7 | Keep WordPress running until DNS has fully propagated (48h+, so from 26 Nov), then archive it with a backup | **To do** |
 
