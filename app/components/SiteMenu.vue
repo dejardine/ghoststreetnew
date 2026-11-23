@@ -177,7 +177,11 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
     position: static;
     min-height: 0;
     overflow: hidden;
-    padding: 0 0 0 2rem;
+    /*
+     * The theme's closeMenu() left every nested item offset by 10%; production shows it.
+     * Done as padding, not translateX, so overflow: hidden (needed for the collapse) can't clip it.
+     */
+    padding: 0 0 0 3rem;
     font-size: 2rem;
     line-height: 2rem;
 
@@ -188,8 +192,6 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onKeydown))
 
     li {
       margin: 0 0 0.5rem;
-      /* The theme's closeMenu() left every nested item offset by 10%; production shows it. */
-      transform: translateX(10%);
 
       &:first-child {
         margin-top: 2rem;
